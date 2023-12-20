@@ -115,8 +115,8 @@
             // panelSlideLeft_PNE
             // 
             this.panelSlideLeft_PNE.BackColor = System.Drawing.Color.RosyBrown;
-            this.panelSlideLeft_PNE.Controls.Add(this.panelFlowFill_PNE);
             this.panelSlideLeft_PNE.Controls.Add(this.panelFlowDown_PNE);
+            this.panelSlideLeft_PNE.Controls.Add(this.panelFlowFill_PNE);
             this.panelSlideLeft_PNE.Controls.Add(this.panelFlowUp_PNE);
             this.panelSlideLeft_PNE.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSlideLeft_PNE.Location = new System.Drawing.Point(0, 0);
@@ -302,8 +302,8 @@
             // panelFlowDown_PNE
             // 
             this.panelFlowDown_PNE.BackColor = System.Drawing.Color.Transparent;
-            this.panelFlowDown_PNE.Controls.Add(this.buttonSaveFile_PNE);
             this.panelFlowDown_PNE.Controls.Add(this.buttonLoadFile_PNE);
+            this.panelFlowDown_PNE.Controls.Add(this.buttonSaveFile_PNE);
             this.panelFlowDown_PNE.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFlowDown_PNE.Location = new System.Drawing.Point(0, 538);
             this.panelFlowDown_PNE.Name = "panelFlowDown_PNE";
@@ -319,7 +319,7 @@
             this.panelFlowFill_PNE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFlowFill_PNE.Location = new System.Drawing.Point(0, 286);
             this.panelFlowFill_PNE.Name = "panelFlowFill_PNE";
-            this.panelFlowFill_PNE.Size = new System.Drawing.Size(400, 252);
+            this.panelFlowFill_PNE.Size = new System.Drawing.Size(400, 506);
             this.panelFlowFill_PNE.TabIndex = 6;
             // 
             // buttonSaveFile_PNE
@@ -334,7 +334,7 @@
             this.buttonSaveFile_PNE.Location = new System.Drawing.Point(6, 67);
             this.buttonSaveFile_PNE.Name = "buttonSaveFile_PNE";
             this.buttonSaveFile_PNE.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.buttonSaveFile_PNE.Size = new System.Drawing.Size(397, 62);
+            this.buttonSaveFile_PNE.Size = new System.Drawing.Size(0, 62);
             this.buttonSaveFile_PNE.TabIndex = 5;
             this.buttonSaveFile_PNE.Text = "Сохранить файл";
             this.buttonSaveFile_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -353,7 +353,7 @@
             this.buttonLoadFile_PNE.Location = new System.Drawing.Point(6, 15);
             this.buttonLoadFile_PNE.Name = "buttonLoadFile_PNE";
             this.buttonLoadFile_PNE.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.buttonLoadFile_PNE.Size = new System.Drawing.Size(397, 55);
+            this.buttonLoadFile_PNE.Size = new System.Drawing.Size(0, 55);
             this.buttonLoadFile_PNE.TabIndex = 4;
             this.buttonLoadFile_PNE.Text = " Загрузить файл";
             this.buttonLoadFile_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

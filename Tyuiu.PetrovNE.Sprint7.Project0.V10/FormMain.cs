@@ -20,8 +20,8 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         bool isShow = false , isinprogress = false;
         private void HideAll()
         {
-            buttonLoadFile_PNE.Hide();
-            buttonSaveFile_PNE.Hide();
+            buttonLoadFile_PNE.Width = 0;
+            buttonSaveFile_PNE.Width = 0;
         }
 
         private void RemoveBackgroundSelection()
@@ -174,8 +174,8 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                 else
                 {
                     isinprogress = true;
-                    buttonLoadFile_PNE.Show();
-                    buttonSaveFile_PNE.Show();
+                    buttonSaveFile_PNE.Width = 397;
+                    buttonLoadFile_PNE.Width = 397;
                 }
             }
         }
