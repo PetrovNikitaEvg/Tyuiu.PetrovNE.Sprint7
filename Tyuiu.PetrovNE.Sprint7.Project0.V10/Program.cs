@@ -14,9 +14,15 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         [STAThread]
         static void Main()
         {
+            /*if(Environment.OSVersion.Version.Major >= 6) fix blur window - не смог прочесть user32dll не стал разбираться
+            {
+                SetProcessDpiAware();
+            }*/
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
         }
+        /*[System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDpiAware();*/
     }
 }
