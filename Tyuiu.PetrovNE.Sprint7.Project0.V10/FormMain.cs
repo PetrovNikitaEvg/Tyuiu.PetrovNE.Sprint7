@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,13 +16,34 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         public FormMain()
         {
             InitializeComponent();
-            panelSlideLeft_PNE.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFBD59"); // change color in slide panel
         }
+        public string openFilePath;
         bool isShow = false , isinprogress = false;
         private void HideAll()
         {
             buttonLoadFile_PNE.Width = 0;
             buttonSaveFile_PNE.Width = 0;
+        }
+        private List<Product> LoadCSV(string csvfile)
+        {
+            var query = from l in File.ReadAllLines(csvfile)
+                        let data = l.Split(',')
+                        select new Product
+                        {
+                            Name = data[0],
+                            Surname = data[1],
+                            Patronymic = data[2],
+                            Account = data[3],
+                            Adress = data[4],
+                            PhoneNumber = data[5],
+                            OrderNumber = data[6],
+                            Date = data[7],
+                            OrderCost = data[8],
+                            ProductName = data[9],
+                            ProductCost = data[10],
+                            Amount = data[11]
+                        };
+            return query.ToList();
         }
 
         private void RemoveBackgroundSelection()
@@ -70,6 +92,8 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         {
             HideAll(); // hide all buttons with actions
             RemoveBackgroundSelection(); //removing all background selection
+
+            panelSlideLeft_PNE.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFBD59"); // change color in slide panel
 
             panelSlideLeft_PNE.Width = 0; //make width slide panel equal zero 
 
@@ -183,12 +207,43 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         //FileDropListActions
         private void buttonLoadFile_PNE_Click(object sender, EventArgs e)
         {
-            openFileDialog_PNE.ShowDialog();
+            try
+            {   
+                openFileDialog_PNE.ShowDialog();
+                openFilePath = openFileDialog_PNE.FileName;
+
+                dataGridViewDataBase_PNE.DataSource = LoadCSV(openFilePath);
+
+            }
+            catch
+            {
+                MessageBox.Show("Введены неверные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridViewDataBase_PNE_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void buttonSaveFile_PNE_Click(object sender, EventArgs e)
         {
             saveFileDialog_PNE.ShowDialog();
         }
+    }
+    public class Product
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Patronymic { get; set; }
+        public string Account { get; set; }
+        public string Adress { get; set; }
+        public string PhoneNumber { get; set; }
+        public string OrderNumber { get; set; }
+        public string Date { get; set; }
+        public string OrderCost { get; set; }
+        public string ProductName { get; set; }
+        public string ProductCost { get; set; }
+        public string Amount { get;set; }
     }
 }
