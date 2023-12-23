@@ -304,7 +304,7 @@
             this.buttonAbout_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAbout_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonAbout_PNE.Image")));
             this.buttonAbout_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAbout_PNE.Location = new System.Drawing.Point(3, 181);
+            this.buttonAbout_PNE.Location = new System.Drawing.Point(0, 181);
             this.buttonAbout_PNE.Name = "buttonAbout_PNE";
             this.buttonAbout_PNE.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
             this.buttonAbout_PNE.Size = new System.Drawing.Size(400, 80);
