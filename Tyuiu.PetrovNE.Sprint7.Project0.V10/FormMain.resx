@@ -1853,17 +1853,14 @@
         qntuq6U/xZ0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="buttonLoadFile_PNE.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonSearch_PNE.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAcBJREFUWEft
-        1V1NA0EUBeBKQACvvOICBTjAAR7wgAZcIAIVmID5Gg65HXa2W7bNvvQkJ5nO/dn7O91dcSJuG18an/e/
-        DuGOjM7Z8dD41vhVeNcYOFcZXTZnQT780fjU6GOfje+NgbM7Mjp02VSdf0NZOauQnTuyyPuMI1+Nx0bO
-        +t7WljhX0HXPdjXS3z7Dm8b7HzpXpEJ1ThZD35RO9BwkgFPKmbbEni93R2cikfdkeEo2dNlM+eoreQC9
-        NMGgj5RFPvo4ndHes2HLR3T47uflFxkca3QMdKxdsnJeakd/Mujatzm8NtKTCYeYjSCbA9/0fOsPPKWE
-        shn1KRlMyd2RjSpBnqpNPeV71OGRVb9eHAx72EBGp4KPVGjxMKcddjxYMiOpUO0xH+4myz7CZgFs2oLN
-        hzBlPzYkF1vDJT0O6CQbdF5qR7/OyAFkstlTDOljz8X7+wO6GeaevjELEYr8En/Hs9mPkAD6yK2XHcd+
-        XVNJtqshes76Xmfysc+Mrnu2q5FyViRDssj7CkW+GsnUBFsjZbV2hixwdkdGhy6bqrMKsqslx9rfzElI
-        t6/IWaC3yjr1lLojG70LV0xgt/sGGb7G2TIYhm0AAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAR1JREFUWEft
+        1U1Kw1AUxfEoouAWOnUNrsCJ7sCJrfPqSlyGOBL3IIjaUbuGugKtY/V/SgIZHAP3fdBJDvwgacO9770k
+        L82YMQk5wi3e8d3S8Q30X9VMsMLvP5bQNVWi2Q0172gQVVZCy+4aOnMUzwKumfOG4tnANXN0bfFEBvCJ
+        4tn5LdB77po5VR5CvVp6xVzDPl1ziCrRJjM0iKobURfNTkus+6wHU17b36rN/BQPmG3PhjPFI862Z5k5
+        wB1+0C2zZn6NExy3dKzBaSX6t+QeydvyPp7QL5hCNfYQzhVcwRSXCOcFrliKZ4TzBVcsRdK3of/glRDO
+        zgfgiuQIxxXJEY4rkiMcVyRHOB9whVKsEc4FSgxCzc8xxqRp/gBCTGUyZBRwrgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="buttonSaveFile_PNE.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -1881,6 +1878,29 @@
         4lPNaeJ2wQj7MezLYKzAS3gFGpt0TN/r8A0+wyPQX4GOWPtPIF+1nADVVtxrUM8VgwLjcBD05P/CYRJv
         wPMQOqHpUGw91HM8/H+BqBidw7Z0ureHMdJlXHdt207ado/uiSbehrlhW1jAugu0aisX0NZGtWyBgLY3
         qmGreAUdZjLyB1HmJwjCVeYrAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="buttonClear_PNE.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAR1JREFUWEft
+        1U1Kw1AUxfEoouAWOnUNrsCJ7sCJrfPqSlyGOBL3IIjaUbuGugKtY/V/SgIZHAP3fdBJDvwgacO9770k
+        L82YMQk5wi3e8d3S8Q30X9VMsMLvP5bQNVWi2Q0172gQVVZCy+4aOnMUzwKumfOG4tnANXN0bfFEBvCJ
+        4tn5LdB77po5VR5CvVp6xVzDPl1ziCrRJjM0iKobURfNTkus+6wHU17b36rN/BQPmG3PhjPFI862Z5k5
+        wB1+0C2zZn6NExy3dKzBaSX6t+QeydvyPp7QL5hCNfYQzhVcwRSXCOcFrliKZ4TzBVcsRdK3of/glRDO
+        zgfgiuQIxxXJEY4rkiMcVyRHOB9whVKsEc4FSgxCzc8xxqRp/gBCTGUyZBRwrgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="buttonLoadFile_PNE.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAcBJREFUWEft
+        1V1NA0EUBeBKQACvvOICBTjAAR7wgAZcIAIVmID5Gg65HXa2W7bNvvQkJ5nO/dn7O91dcSJuG18an/e/
+        DuGOjM7Z8dD41vhVeNcYOFcZXTZnQT780fjU6GOfje+NgbM7Mjp02VSdf0NZOauQnTuyyPuMI1+Nx0bO
+        +t7WljhX0HXPdjXS3z7Dm8b7HzpXpEJ1ThZD35RO9BwkgFPKmbbEni93R2cikfdkeEo2dNlM+eoreQC9
+        NMGgj5RFPvo4ndHes2HLR3T47uflFxkca3QMdKxdsnJeakd/Mujatzm8NtKTCYeYjSCbA9/0fOsPPKWE
+        shn1KRlMyd2RjSpBnqpNPeV71OGRVb9eHAx72EBGp4KPVGjxMKcddjxYMiOpUO0xH+4myz7CZgFs2oLN
+        hzBlPzYkF1vDJT0O6CQbdF5qR7/OyAFkstlTDOljz8X7+wO6GeaevjELEYr8En/Hs9mPkAD6yK2XHcd+
+        XVNJtqshes76Xmfysc+Mrnu2q5FyViRDssj7CkW+GsnUBFsjZbV2hixwdkdGhy6bqrMKsqslx9rfzElI
+        t6/IWaC3yjr1lLojG70LV0xgt/sGGb7G2TIYhm0AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="buttonAbout_PNE.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -4253,6 +4273,16 @@
   <metadata name="openFileDialog_PNE.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>370, 17</value>
   </metadata>
+  <data name="buttonAddColumn_PNE.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAR1JREFUWEft
+        1U1Kw1AUxfEoouAWOnUNrsCJ7sCJrfPqSlyGOBL3IIjaUbuGugKtY/V/SgIZHAP3fdBJDvwgacO9770k
+        L82YMQk5wi3e8d3S8Q30X9VMsMLvP5bQNVWi2Q0172gQVVZCy+4aOnMUzwKumfOG4tnANXN0bfFEBvCJ
+        4tn5LdB77po5VR5CvVp6xVzDPl1ziCrRJjM0iKobURfNTkus+6wHU17b36rN/BQPmG3PhjPFI862Z5k5
+        wB1+0C2zZn6NExy3dKzBaSX6t+QeydvyPp7QL5hCNfYQzhVcwRSXCOcFrliKZ4TzBVcsRdK3of/glRDO
+        zgfgiuQIxxXJEY4rkiMcVyRHOB9whVKsEc4FSgxCzc8xxqRp/gBCTGUyZBRwrgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>54</value>
   </metadata>

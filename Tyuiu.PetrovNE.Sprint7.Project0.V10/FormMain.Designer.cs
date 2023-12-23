@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelFill_PNE = new System.Windows.Forms.Panel();
             this.panelDataBase_PNE = new System.Windows.Forms.Panel();
-            this.dataGridViewDataBase_PNE = new System.Windows.Forms.DataGridView();
+            this.advancedDataGridViewDataBase_PNE = new ADGV.AdvancedDataGridView();
             this.panelButtons_PNE = new System.Windows.Forms.Panel();
             this.groupBoxResult_PNE = new System.Windows.Forms.GroupBox();
             this.textBoxResult_PNE = new System.Windows.Forms.TextBox();
@@ -43,8 +43,14 @@
             this.pictureBoxSlideMenu_PNE = new System.Windows.Forms.PictureBox();
             this.panelSlideLeft_PNE = new System.Windows.Forms.Panel();
             this.panelFlowDown_PNE = new System.Windows.Forms.Panel();
-            this.buttonLoadFile_PNE = new System.Windows.Forms.Button();
+            this.panelDataBaseActions_PNE = new System.Windows.Forms.Panel();
+            this.textBoxSearch_PNE = new System.Windows.Forms.TextBox();
+            this.buttonSearch_PNE = new System.Windows.Forms.Button();
+            this.panelFileActions_PNE = new System.Windows.Forms.Panel();
+            this.checkBoxIssemicolon_PNE = new System.Windows.Forms.CheckBox();
             this.buttonSaveFile_PNE = new System.Windows.Forms.Button();
+            this.buttonClear_PNE = new System.Windows.Forms.Button();
+            this.buttonLoadFile_PNE = new System.Windows.Forms.Button();
             this.panelFlowFill_PNE = new System.Windows.Forms.Panel();
             this.buttonAbout_PNE = new System.Windows.Forms.Button();
             this.buttonTutorial_PNE = new System.Windows.Forms.Button();
@@ -54,14 +60,17 @@
             this.timerLeftPanel_PNE = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog_PNE = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog_PNE = new System.Windows.Forms.OpenFileDialog();
+            this.buttonAddColumn_PNE = new System.Windows.Forms.Button();
             this.panelFill_PNE.SuspendLayout();
             this.panelDataBase_PNE.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataBase_PNE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridViewDataBase_PNE)).BeginInit();
             this.panelButtons_PNE.SuspendLayout();
             this.groupBoxResult_PNE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSlideMenu_PNE)).BeginInit();
             this.panelSlideLeft_PNE.SuspendLayout();
             this.panelFlowDown_PNE.SuspendLayout();
+            this.panelDataBaseActions_PNE.SuspendLayout();
+            this.panelFileActions_PNE.SuspendLayout();
             this.panelFlowFill_PNE.SuspendLayout();
             this.panelFlowUp_PNE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo_PNE)).BeginInit();
@@ -82,31 +91,35 @@
             // panelDataBase_PNE
             // 
             this.panelDataBase_PNE.BackColor = System.Drawing.Color.White;
-            this.panelDataBase_PNE.Controls.Add(this.dataGridViewDataBase_PNE);
+            this.panelDataBase_PNE.Controls.Add(this.advancedDataGridViewDataBase_PNE);
             this.panelDataBase_PNE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDataBase_PNE.Location = new System.Drawing.Point(400, 108);
             this.panelDataBase_PNE.Name = "panelDataBase_PNE";
             this.panelDataBase_PNE.Size = new System.Drawing.Size(1073, 684);
             this.panelDataBase_PNE.TabIndex = 2;
             // 
-            // dataGridViewDataBase_PNE
+            // advancedDataGridViewDataBase_PNE
             // 
-            this.dataGridViewDataBase_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.advancedDataGridViewDataBase_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewDataBase_PNE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewDataBase_PNE.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewDataBase_PNE.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewDataBase_PNE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDataBase_PNE.ColumnHeadersVisible = false;
-            this.dataGridViewDataBase_PNE.Location = new System.Drawing.Point(3, 7);
-            this.dataGridViewDataBase_PNE.Name = "dataGridViewDataBase_PNE";
-            this.dataGridViewDataBase_PNE.RowHeadersVisible = false;
-            this.dataGridViewDataBase_PNE.RowHeadersWidth = 51;
-            this.dataGridViewDataBase_PNE.RowTemplate.Height = 24;
-            this.dataGridViewDataBase_PNE.Size = new System.Drawing.Size(1067, 677);
-            this.dataGridViewDataBase_PNE.TabIndex = 0;
-            this.dataGridViewDataBase_PNE.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDataBase_PNE_CellContentClick);
+            this.advancedDataGridViewDataBase_PNE.AutoGenerateContextFilters = true;
+            this.advancedDataGridViewDataBase_PNE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.advancedDataGridViewDataBase_PNE.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.advancedDataGridViewDataBase_PNE.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.advancedDataGridViewDataBase_PNE.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.advancedDataGridViewDataBase_PNE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.advancedDataGridViewDataBase_PNE.ColumnHeadersVisible = false;
+            this.advancedDataGridViewDataBase_PNE.DateWithTime = false;
+            this.advancedDataGridViewDataBase_PNE.Location = new System.Drawing.Point(0, -1);
+            this.advancedDataGridViewDataBase_PNE.Name = "advancedDataGridViewDataBase_PNE";
+            this.advancedDataGridViewDataBase_PNE.RowHeadersVisible = false;
+            this.advancedDataGridViewDataBase_PNE.RowHeadersWidth = 51;
+            this.advancedDataGridViewDataBase_PNE.RowTemplate.Height = 24;
+            this.advancedDataGridViewDataBase_PNE.Size = new System.Drawing.Size(1070, 685);
+            this.advancedDataGridViewDataBase_PNE.TabIndex = 1;
+            this.advancedDataGridViewDataBase_PNE.TimeFilter = false;
+            this.advancedDataGridViewDataBase_PNE.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridViewDataBase_PNE_CellContentClick);
             // 
             // panelButtons_PNE
             // 
@@ -235,35 +248,82 @@
             // panelFlowDown_PNE
             // 
             this.panelFlowDown_PNE.BackColor = System.Drawing.Color.Transparent;
-            this.panelFlowDown_PNE.Controls.Add(this.buttonLoadFile_PNE);
-            this.panelFlowDown_PNE.Controls.Add(this.buttonSaveFile_PNE);
+            this.panelFlowDown_PNE.Controls.Add(this.panelDataBaseActions_PNE);
+            this.panelFlowDown_PNE.Controls.Add(this.panelFileActions_PNE);
             this.panelFlowDown_PNE.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFlowDown_PNE.Location = new System.Drawing.Point(0, 538);
             this.panelFlowDown_PNE.Name = "panelFlowDown_PNE";
             this.panelFlowDown_PNE.Size = new System.Drawing.Size(400, 254);
             this.panelFlowDown_PNE.TabIndex = 5;
             // 
-            // buttonLoadFile_PNE
+            // panelDataBaseActions_PNE
             // 
-            this.buttonLoadFile_PNE.BackColor = System.Drawing.Color.Transparent;
-            this.buttonLoadFile_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLoadFile_PNE.FlatAppearance.BorderSize = 0;
-            this.buttonLoadFile_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLoadFile_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonLoadFile_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonLoadFile_PNE.Image")));
-            this.buttonLoadFile_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonLoadFile_PNE.Location = new System.Drawing.Point(6, 15);
-            this.buttonLoadFile_PNE.Name = "buttonLoadFile_PNE";
-            this.buttonLoadFile_PNE.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.buttonLoadFile_PNE.Size = new System.Drawing.Size(0, 55);
-            this.buttonLoadFile_PNE.TabIndex = 4;
-            this.buttonLoadFile_PNE.Text = " Загрузить файл";
-            this.buttonLoadFile_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonLoadFile_PNE.UseVisualStyleBackColor = false;
-            this.buttonLoadFile_PNE.Click += new System.EventHandler(this.buttonLoadFile_PNE_Click);
+            this.panelDataBaseActions_PNE.Controls.Add(this.buttonAddColumn_PNE);
+            this.panelDataBaseActions_PNE.Controls.Add(this.textBoxSearch_PNE);
+            this.panelDataBaseActions_PNE.Controls.Add(this.buttonSearch_PNE);
+            this.panelDataBaseActions_PNE.Location = new System.Drawing.Point(3, 3);
+            this.panelDataBaseActions_PNE.Name = "panelDataBaseActions_PNE";
+            this.panelDataBaseActions_PNE.Size = new System.Drawing.Size(397, 254);
+            this.panelDataBaseActions_PNE.TabIndex = 8;
+            // 
+            // textBoxSearch_PNE
+            // 
+            this.textBoxSearch_PNE.Location = new System.Drawing.Point(0, 15);
+            this.textBoxSearch_PNE.Multiline = true;
+            this.textBoxSearch_PNE.Name = "textBoxSearch_PNE";
+            this.textBoxSearch_PNE.Size = new System.Drawing.Size(400, 32);
+            this.textBoxSearch_PNE.TabIndex = 6;
+            this.textBoxSearch_PNE.TextChanged += new System.EventHandler(this.textBoxSearch_PNE_TextChanged);
+            // 
+            // buttonSearch_PNE
+            // 
+            this.buttonSearch_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSearch_PNE.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSearch_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSearch_PNE.FlatAppearance.BorderSize = 0;
+            this.buttonSearch_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearch_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSearch_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonSearch_PNE.Image")));
+            this.buttonSearch_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSearch_PNE.Location = new System.Drawing.Point(6, 53);
+            this.buttonSearch_PNE.Name = "buttonSearch_PNE";
+            this.buttonSearch_PNE.Size = new System.Drawing.Size(397, 35);
+            this.buttonSearch_PNE.TabIndex = 4;
+            this.buttonSearch_PNE.Text = "Поиск";
+            this.buttonSearch_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSearch_PNE.UseVisualStyleBackColor = false;
+            this.buttonSearch_PNE.Click += new System.EventHandler(this.buttonSearch_PNE_Click);
+            // 
+            // panelFileActions_PNE
+            // 
+            this.panelFileActions_PNE.Controls.Add(this.checkBoxIssemicolon_PNE);
+            this.panelFileActions_PNE.Controls.Add(this.buttonSaveFile_PNE);
+            this.panelFileActions_PNE.Controls.Add(this.buttonClear_PNE);
+            this.panelFileActions_PNE.Controls.Add(this.buttonLoadFile_PNE);
+            this.panelFileActions_PNE.Location = new System.Drawing.Point(3, 3);
+            this.panelFileActions_PNE.Name = "panelFileActions_PNE";
+            this.panelFileActions_PNE.Size = new System.Drawing.Size(0, 242);
+            this.panelFileActions_PNE.TabIndex = 7;
+            // 
+            // checkBoxIssemicolon_PNE
+            // 
+            this.checkBoxIssemicolon_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxIssemicolon_PNE.AutoSize = true;
+            this.checkBoxIssemicolon_PNE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxIssemicolon_PNE.Location = new System.Drawing.Point(60, 167);
+            this.checkBoxIssemicolon_PNE.Name = "checkBoxIssemicolon_PNE";
+            this.checkBoxIssemicolon_PNE.Size = new System.Drawing.Size(314, 29);
+            this.checkBoxIssemicolon_PNE.TabIndex = 7;
+            this.checkBoxIssemicolon_PNE.Text = "Разделитель точка с запятой";
+            this.checkBoxIssemicolon_PNE.UseVisualStyleBackColor = true;
+            this.checkBoxIssemicolon_PNE.CheckedChanged += new System.EventHandler(this.checkBoxIssemicolon_PNE_CheckedChanged);
             // 
             // buttonSaveFile_PNE
             // 
+            this.buttonSaveFile_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSaveFile_PNE.BackColor = System.Drawing.Color.Transparent;
             this.buttonSaveFile_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSaveFile_PNE.FlatAppearance.BorderSize = 0;
@@ -271,7 +331,7 @@
             this.buttonSaveFile_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSaveFile_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveFile_PNE.Image")));
             this.buttonSaveFile_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSaveFile_PNE.Location = new System.Drawing.Point(6, 67);
+            this.buttonSaveFile_PNE.Location = new System.Drawing.Point(-9, 99);
             this.buttonSaveFile_PNE.Name = "buttonSaveFile_PNE";
             this.buttonSaveFile_PNE.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
             this.buttonSaveFile_PNE.Size = new System.Drawing.Size(0, 62);
@@ -280,6 +340,47 @@
             this.buttonSaveFile_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSaveFile_PNE.UseVisualStyleBackColor = false;
             this.buttonSaveFile_PNE.Click += new System.EventHandler(this.buttonSaveFile_PNE_Click);
+            // 
+            // buttonClear_PNE
+            // 
+            this.buttonClear_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClear_PNE.BackColor = System.Drawing.Color.Transparent;
+            this.buttonClear_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonClear_PNE.FlatAppearance.BorderSize = 0;
+            this.buttonClear_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonClear_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonClear_PNE.Image")));
+            this.buttonClear_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonClear_PNE.Location = new System.Drawing.Point(45, 202);
+            this.buttonClear_PNE.Name = "buttonClear_PNE";
+            this.buttonClear_PNE.Size = new System.Drawing.Size(0, 46);
+            this.buttonClear_PNE.TabIndex = 4;
+            this.buttonClear_PNE.Text = "Очистить базу данных";
+            this.buttonClear_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonClear_PNE.UseVisualStyleBackColor = false;
+            this.buttonClear_PNE.Click += new System.EventHandler(this.buttonClear_PNE_Click);
+            // 
+            // buttonLoadFile_PNE
+            // 
+            this.buttonLoadFile_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLoadFile_PNE.BackColor = System.Drawing.Color.Transparent;
+            this.buttonLoadFile_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLoadFile_PNE.FlatAppearance.BorderSize = 0;
+            this.buttonLoadFile_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLoadFile_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonLoadFile_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonLoadFile_PNE.Image")));
+            this.buttonLoadFile_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonLoadFile_PNE.Location = new System.Drawing.Point(-9, 38);
+            this.buttonLoadFile_PNE.Name = "buttonLoadFile_PNE";
+            this.buttonLoadFile_PNE.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.buttonLoadFile_PNE.Size = new System.Drawing.Size(0, 55);
+            this.buttonLoadFile_PNE.TabIndex = 4;
+            this.buttonLoadFile_PNE.Text = " Загрузить файл";
+            this.buttonLoadFile_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonLoadFile_PNE.UseVisualStyleBackColor = false;
+            this.buttonLoadFile_PNE.Click += new System.EventHandler(this.buttonLoadFile_PNE_Click);
             // 
             // panelFlowFill_PNE
             // 
@@ -387,6 +488,25 @@
             // 
             this.openFileDialog_PNE.FileName = "openFileDialog1";
             // 
+            // buttonAddColumn_PNE
+            // 
+            this.buttonAddColumn_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddColumn_PNE.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAddColumn_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAddColumn_PNE.FlatAppearance.BorderSize = 0;
+            this.buttonAddColumn_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddColumn_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddColumn_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddColumn_PNE.Image")));
+            this.buttonAddColumn_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddColumn_PNE.Location = new System.Drawing.Point(6, 94);
+            this.buttonAddColumn_PNE.Name = "buttonAddColumn_PNE";
+            this.buttonAddColumn_PNE.Size = new System.Drawing.Size(397, 35);
+            this.buttonAddColumn_PNE.TabIndex = 7;
+            this.buttonAddColumn_PNE.Text = "Добавить колонну";
+            this.buttonAddColumn_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonAddColumn_PNE.UseVisualStyleBackColor = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -400,13 +520,17 @@
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.panelFill_PNE.ResumeLayout(false);
             this.panelDataBase_PNE.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataBase_PNE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridViewDataBase_PNE)).EndInit();
             this.panelButtons_PNE.ResumeLayout(false);
             this.groupBoxResult_PNE.ResumeLayout(false);
             this.groupBoxResult_PNE.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSlideMenu_PNE)).EndInit();
             this.panelSlideLeft_PNE.ResumeLayout(false);
             this.panelFlowDown_PNE.ResumeLayout(false);
+            this.panelDataBaseActions_PNE.ResumeLayout(false);
+            this.panelDataBaseActions_PNE.PerformLayout();
+            this.panelFileActions_PNE.ResumeLayout(false);
+            this.panelFileActions_PNE.PerformLayout();
             this.panelFlowFill_PNE.ResumeLayout(false);
             this.panelFlowUp_PNE.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo_PNE)).EndInit();
@@ -439,7 +563,14 @@
         private System.Windows.Forms.Button buttonLoadFile_PNE;
         private System.Windows.Forms.SaveFileDialog saveFileDialog_PNE;
         private System.Windows.Forms.OpenFileDialog openFileDialog_PNE;
-        private System.Windows.Forms.DataGridView dataGridViewDataBase_PNE;
+        private System.Windows.Forms.Button buttonSearch_PNE;
+        private System.Windows.Forms.TextBox textBoxSearch_PNE;
+        private ADGV.AdvancedDataGridView advancedDataGridViewDataBase_PNE;
+        private System.Windows.Forms.Button buttonClear_PNE;
+        private System.Windows.Forms.CheckBox checkBoxIssemicolon_PNE;
+        private System.Windows.Forms.Panel panelFileActions_PNE;
+        private System.Windows.Forms.Panel panelDataBaseActions_PNE;
+        private System.Windows.Forms.Button buttonAddColumn_PNE;
     }
 }
 

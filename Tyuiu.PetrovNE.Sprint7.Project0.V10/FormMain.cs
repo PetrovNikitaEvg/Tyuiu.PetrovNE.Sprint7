@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
 {
@@ -18,13 +19,15 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             InitializeComponent();
         }
         public string openFilePath;
-        bool isShow = false , isinprogress = false;
+        bool isShow = false, isinprogress = false, issemicolon = false;
+        public int column;
         private void HideAll()
         {
-            buttonLoadFile_PNE.Width = 0;
-            buttonSaveFile_PNE.Width = 0;
+            panelFileActions_PNE.Width = 0;
+            panelDataBaseActions_PNE.Width = 0;
+
         }
-        private List<Product> LoadCSV(string csvfile)
+        /*private List<Product> LoadCSV(string csvfile)
         {
             var query = from l in File.ReadAllLines(csvfile)
                         let data = l.Split(',')
@@ -44,7 +47,8 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                             Amount = data[11]
                         };
             return query.ToList();
-        }
+        }*/ // second metod to load file in datagridview
+
 
         private void RemoveBackgroundSelection()
         {
@@ -163,19 +167,20 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                 MessageBox.Show("Необходимо сначала открыть меню", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            else 
-            { 
-
-            if (isinprogress)
-            {
-                HideAll();
-                isinprogress = false;
-            }
-
             else
             {
-                isinprogress = true;
-            }
+
+                if (isinprogress)
+                {
+                    HideAll();
+                    isinprogress = false;
+                }
+
+                else
+                {
+                    isinprogress = true;
+                    panelDataBaseActions_PNE.Width = 397;
+                }
 
             }
 
@@ -198,40 +203,195 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                 else
                 {
                     isinprogress = true;
-                    buttonSaveFile_PNE.Width = 397;
-                    buttonLoadFile_PNE.Width = 397;
+                    panelFileActions_PNE.Width = 397;
+                }
+            }
+        }
+        private void buttonLoadFile_PNE_Click(object sender, EventArgs e)
+        {
+            advancedDataGridViewDataBase_PNE.Rows.Clear();
+            if (!issemicolon)
+            {
+                try
+                {
+                    openFileDialog_PNE.ShowDialog();
+                    openFilePath = openFileDialog_PNE.FileName;
+                    column = System.IO.File.ReadAllLines(openFilePath).Length + 1;
+
+
+                    advancedDataGridViewDataBase_PNE.ColumnCount = column;
+                    using (var reader = new StreamReader(openFilePath))
+                    {
+                        while (!reader.EndOfStream)
+                        {
+                            var line = reader.ReadLine();
+                            var values = line.Split(',');
+
+                            advancedDataGridViewDataBase_PNE.Rows.Add(values);
+                        }
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Введены неверные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                openFileDialog_PNE.ShowDialog();
+                openFilePath = openFileDialog_PNE.FileName;
+                column = System.IO.File.ReadAllLines(openFilePath).Length + 1;
+
+
+                advancedDataGridViewDataBase_PNE.ColumnCount = column;
+                using (var reader = new StreamReader(openFilePath))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        var values = line.Split(';');
+
+                        advancedDataGridViewDataBase_PNE.Rows.Add(values);
+                    }
                 }
             }
         }
 
-        //FileDropListActions
-        private void buttonLoadFile_PNE_Click(object sender, EventArgs e)
+        private void buttonSearch_PNE_Click(object sender, EventArgs e)
         {
-            try
-            {   
-                openFileDialog_PNE.ShowDialog();
-                openFilePath = openFileDialog_PNE.FileName;
+            
+        }
 
-                dataGridViewDataBase_PNE.DataSource = LoadCSV(openFilePath);
-
-            }
-            catch
+        private void textBoxSearch_PNE_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = textBoxSearch_PNE.Text.ToLower(); //приведение к нижнему регистру
+            foreach (DataGridViewRow row in dataGridViewMain_PSV.Rows)
             {
-                MessageBox.Show("Введены неверные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (row.Cells["Номер"].Value != null && row.Cells["Страна"].Value != null)
+                {
+                    string column1Text = row.Cells["Номер"].Value.ToString().ToLower();
+                    string column2Text = row.Cells["Страна"].Value.ToString().ToLower();
+                    string column3Text = row.Cells["Столица"].Value.ToString().ToLower();
+
+                    if (column1Text.Contains(searchText) || column2Text.Contains(searchText))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
             }
         }
 
-        private void dataGridViewDataBase_PNE_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void buttonClear_PNE_Click(object sender, EventArgs e)
+        {
+            advancedDataGridViewDataBase_PNE.Rows.Clear();
+        }
+
+        private void advancedDataGridViewDataBase_PNE_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
+        private void buttonAddColumn_PNE_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //issemicolon function
+        private void checkBoxIssemicolon_PNE_CheckedChanged(object sender, EventArgs e)
+        {
+            if (issemicolon)
+            {
+                issemicolon = false;
+            }
+            else
+            {
+                issemicolon = true;
+            }
+        }
+
 
         private void buttonSaveFile_PNE_Click(object sender, EventArgs e)
         {
-            saveFileDialog_PNE.ShowDialog();
+            if (!issemicolon) //save with , split
+            {
+                try
+                {
+                    saveFileDialog_PNE.FileName = ".csv";
+                    saveFileDialog_PNE.InitialDirectory = @":L";
+                    if (saveFileDialog_PNE.ShowDialog() == DialogResult.OK)
+                    {
+                        string savepath = saveFileDialog_PNE.FileName;
+
+                        if (File.Exists(savepath)) File.Delete(savepath);
+
+                        int rows = advancedDataGridViewDataBase_PNE.RowCount;
+                        int columns = advancedDataGridViewDataBase_PNE.ColumnCount;
+
+                        StringBuilder strBuilder = new StringBuilder();
+
+                        for (int i = 0; i < rows; i++)
+                        {
+                            for (int j = 0; j < columns; j++)
+                            {
+                                strBuilder.Append(advancedDataGridViewDataBase_PNE.Rows[i].Cells[j].Value);
+
+                                if (j != columns - 1) strBuilder.Append(",");
+                            }
+                            strBuilder.AppendLine();
+                        }
+                        File.WriteAllText(savepath, strBuilder.ToString(), Encoding.UTF8);
+                        MessageBox.Show("Файл успешно сохранен", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else //save with ; split
+            {
+                try
+                {
+                    saveFileDialog_PNE.FileName = ".csv";
+                    saveFileDialog_PNE.InitialDirectory = @":L";
+                    if (saveFileDialog_PNE.ShowDialog() == DialogResult.OK)
+                    {
+                        string savepath = saveFileDialog_PNE.FileName;
+
+                        if (File.Exists(savepath)) File.Delete(savepath);
+
+                        int rows = advancedDataGridViewDataBase_PNE.RowCount;
+                        int columns = advancedDataGridViewDataBase_PNE.ColumnCount;
+
+                        StringBuilder strBuilder = new StringBuilder();
+
+                        for (int i = 0; i < rows; i++)
+                        {
+                            for (int j = 0; j < columns; j++)
+                            {
+                                strBuilder.Append(advancedDataGridViewDataBase_PNE.Rows[i].Cells[j].Value);
+
+                                if (j != columns - 1) strBuilder.Append(";");
+                            }
+                            strBuilder.AppendLine();
+                        }
+                        File.WriteAllText(savepath, strBuilder.ToString(), Encoding.UTF8);
+                        MessageBox.Show("Файл успешно сохранен", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
-    public class Product
+}
+  /*  public class Product
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -246,4 +406,4 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         public string ProductCost { get; set; }
         public string Amount { get;set; }
     }
-}
+}*/
