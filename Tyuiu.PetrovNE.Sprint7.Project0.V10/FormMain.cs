@@ -10,6 +10,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+
+using Tyuiu.PetrovNE.Sprint7.Project0.V10.Lib;
 
 namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
 {
@@ -22,10 +25,12 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         public string openFilePath;
         bool isShow = false, isinprogress = false, issemicolon = false;
         public int column, rows;
+        public int[] Order_costs_array;
         private void HideAll()
         {
             panelFileActions_PNE.Width = 0;
             panelDataBaseActions_PNE.Width = 0;
+            panelStatisticActions_PNE.Width = 0;
         }
 
         private void RemoveBackgroundSelection()
@@ -184,14 +189,47 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                     panelFileActions_PNE.Width = 397;
                 }
             }
+
         }
+        //Statistic
+        private void buttonStatisticDropList_PNE_Click(object sender, EventArgs e)
+        {
+            if (!isShow)
+            {
+                MessageBox.Show("Необходимо сначала открыть меню", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+                if (isinprogress)
+                {
+                    HideAll();
+                    isinprogress = false;
+                }
+                else
+                {
+                    isinprogress = true;
+                    panelStatisticActions_PNE.Width = 397;
+                }
+            }
+        }
+
+        private DataGridView GetDataGridViewDataBase_PNE()
+        {
+            return DataGridViewDataBase_PNE;
+        }
+
+
+        //LOAD FILE
         private void buttonLoadFile_PNE_Click(object sender, EventArgs e)
         {
+            DataGridViewDataBase_PNE.AllowUserToAddRows = false;
             DataGridViewDataBase_PNE.Rows.Clear();
             if (!issemicolon)
             {
                 try
                 {
+                    DataGridViewDataBase_PNE.AllowUserToAddRows = false;
                     openFileDialog_PNE.ShowDialog();
                     openFilePath = openFileDialog_PNE.FileName;
                     column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
@@ -216,6 +254,7 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             }
             else
             {
+                DataGridViewDataBase_PNE.AllowUserToAddRows = false;
                 openFileDialog_PNE.ShowDialog();
                 openFilePath = openFileDialog_PNE.FileName;
                 column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
@@ -234,22 +273,15 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                 }
             }
             column = DataGridViewDataBase_PNE.Columns.Count;
-            rows = DataGridViewDataBase_PNE.RowCount;
-        }
+            rows = DataGridViewDataBase_PNE.RowCount - 1;
+    }
 
-        private void buttonSearch_PNE_Click(object sender, EventArgs e)
-        {
-                for (int i = 0; i < column; i++)
-                {
-                    for (int j = 0; j < rows; j++)
-                    {
-                        DataGridViewDataBase_PNE[i, j].Style.BackColor = Color.White;
-                    }
-                }
-        }
 
+        //SEARCH FUNCTION
         private void textBoxSearch_PNE_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
                 string searchValue = textBoxSearch_PNE.Text.ToLower();
 
                 foreach (DataGridViewRow row in DataGridViewDataBase_PNE.Rows)
@@ -266,34 +298,51 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                         }
                     }
                 }
+            }
+
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так, попробуйте снова", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        //Clear DataBase
         private void buttonClear_PNE_Click(object sender, EventArgs e)
         {
             DataGridViewDataBase_PNE.Rows.Clear();
         }
 
+        //DATAGRIDVIEW CODE
         private void DataGridViewDataBase_PNE_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
+        //Remove selection after searching and filter
         private void buttonRemoveSelection_PNE_Click(object sender, EventArgs e)
         {
-
-            for (int i = 0; i < column; i++)
+            try
             {
-                for (int j = 0; j < rows; j++)
+                for (int i = 0; i < column; i++)
                 {
-                    DataGridViewDataBase_PNE[i, j].Style.BackColor = Color.White;
+                    for (int j = 0; j < rows + 1; j++)
+                    {
+                        DataGridViewDataBase_PNE[i, j].Style.BackColor = Color.White;
+                    }
                 }
+            }
+            catch 
+            {
+                MessageBox.Show("Что-то пошло не так, попробуйте снова", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        //RELOAD DATABASE
         private void buttonRefresh_PNE_Click(object sender, EventArgs e)
         {
             try
             {
+                DataGridViewDataBase_PNE.AllowUserToAddRows = false;
                 DataGridViewDataBase_PNE.Rows.Clear();
                 column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
 
@@ -316,41 +365,104 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             }
         }
 
+        //FILTER
         private void textBoxFilter_PNE_TextChanged(object sender, EventArgs e)
         {
         }
 
         private void buttonFilter_PNE_Click(object sender, EventArgs e) //Кто украдёт мой код, узнаю ою этом и пожалуюсь в администрацию интернета, поняли!?
         {
-            string filterValue = textBoxFilter_PNE.Text.ToLower();
-            string[] array = new string[column];
-            int count = 0, row_to_select = -1;
-
-            foreach (DataGridViewRow row in DataGridViewDataBase_PNE.Rows)
+            try
             {
-                row_to_select++;
-                foreach (DataGridViewCell cell in row.Cells)
+                string filterValue = textBoxFilter_PNE.Text.ToLower();
+                string[] array = new string[column];
+                int count = 0, row_to_select = -1;
+
+                foreach (DataGridViewRow row in DataGridViewDataBase_PNE.Rows)
                 {
-                    if (cell.Value != null && cell.Value.ToString().ToLower().Contains(filterValue))
+                    row_to_select++;
+                    foreach (DataGridViewCell cell in row.Cells)
                     {
-                        bool InArray = array.Contains(row_to_select.ToString());
-                        if (!InArray)
+                        if (cell.Value != null && cell.Value.ToString().ToLower().Contains(filterValue))
                         {
-                            array[count] = row_to_select.ToString();
-                            count++;
+                            bool InArray = array.Contains(row_to_select.ToString());
+                            if (!InArray)
+                            {
+                                array[count] = row_to_select.ToString();
+                                count++;
+                            }
                         }
                     }
                 }
-            }
 
-            int i = 0;
-            while (array[i] != null)
-            {
-                for (int j = 0; j < column; j++)
+                int i = 0;
+                while (array[i] != null)
                 {
-                    DataGridViewDataBase_PNE[j, int.Parse(array[i])].Style.BackColor = Color.Red;
+                    for (int j = 0; j < column; j++)
+                    {
+                        DataGridViewDataBase_PNE[j, int.Parse(array[i])].Style.BackColor = Color.Red;
+                    }
+                    i++;
                 }
-                i++;
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так, попробуйте снова", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonCompleteActionStatistics_PNE_Click(object sender, EventArgs e)
+        {
+            Order_costs_array = new int[rows]; //create array for order cost
+
+            int count = 0;
+
+            for (int i = 0; i < rows+1; i++) //add values in array
+            {
+                bool diddigitwasmeet = false;
+                string ResultString = "";
+                string CollectedStringValue = (DataGridViewDataBase_PNE.Rows[i].Cells[8].Value.ToString());
+                for (int k = 0; k < CollectedStringValue.Length; k++)
+                {
+                    if (Char.IsDigit(CollectedStringValue[k]))
+                    {
+                        ResultString += CollectedStringValue[k];
+                        diddigitwasmeet = true;
+                    }
+                }
+                if (diddigitwasmeet)
+                {
+                    Order_costs_array[count] = int.Parse(ResultString);
+                    count++;
+                }
+            }
+            DataService ds = new DataService();
+            try
+            {
+                if (comboBoxStatisticActions_PNE.Text == "Минимальная цена заказа")
+                {
+                    textBoxResult_PNE.Text = ds.GetMinValue(Order_costs_array).ToString();
+                }
+                else if (comboBoxStatisticActions_PNE.Text == "Максимальная цена заказа")
+                {
+                    textBoxResult_PNE.Text = ds.GetMaxValue(Order_costs_array).ToString();
+                }
+                else if (comboBoxStatisticActions_PNE.Text == "Средняя цена заказа")
+                {
+                    textBoxResult_PNE.Text = ds.GetAverageValue(Order_costs_array).ToString();
+                }
+                else if (comboBoxStatisticActions_PNE.Text == "Общая сумма всех заказов")
+                {
+                    textBoxResult_PNE.Text = ds.GetSumValue(Order_costs_array).ToString();
+                }
+                else if (comboBoxStatisticActions_PNE.Text == "Количество заказов")
+                {
+                    textBoxResult_PNE.Text = ds.GetCountValue(Order_costs_array).ToString();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так, проверьте данные в базе данных", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
