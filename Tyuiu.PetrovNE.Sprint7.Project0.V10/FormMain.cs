@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -20,35 +21,12 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         }
         public string openFilePath;
         bool isShow = false, isinprogress = false, issemicolon = false;
-        public int column;
+        public int column, rows;
         private void HideAll()
         {
             panelFileActions_PNE.Width = 0;
             panelDataBaseActions_PNE.Width = 0;
-
         }
-        /*private List<Product> LoadCSV(string csvfile)
-        {
-            var query = from l in File.ReadAllLines(csvfile)
-                        let data = l.Split(',')
-                        select new Product
-                        {
-                            Name = data[0],
-                            Surname = data[1],
-                            Patronymic = data[2],
-                            Account = data[3],
-                            Adress = data[4],
-                            PhoneNumber = data[5],
-                            OrderNumber = data[6],
-                            Date = data[7],
-                            OrderCost = data[8],
-                            ProductName = data[9],
-                            ProductCost = data[10],
-                            Amount = data[11]
-                        };
-            return query.ToList();
-        }*/ // second metod to load file in datagridview
-
 
         private void RemoveBackgroundSelection()
         {
@@ -209,17 +187,17 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         }
         private void buttonLoadFile_PNE_Click(object sender, EventArgs e)
         {
-            advancedDataGridViewDataBase_PNE.Rows.Clear();
+            DataGridViewDataBase_PNE.Rows.Clear();
             if (!issemicolon)
             {
                 try
                 {
                     openFileDialog_PNE.ShowDialog();
                     openFilePath = openFileDialog_PNE.FileName;
-                    column = System.IO.File.ReadAllLines(openFilePath).Length + 1;
+                    column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
 
 
-                    advancedDataGridViewDataBase_PNE.ColumnCount = column;
+                    DataGridViewDataBase_PNE.ColumnCount = column;
                     using (var reader = new StreamReader(openFilePath))
                     {
                         while (!reader.EndOfStream)
@@ -227,7 +205,7 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                             var line = reader.ReadLine();
                             var values = line.Split(',');
 
-                            advancedDataGridViewDataBase_PNE.Rows.Add(values);
+                            DataGridViewDataBase_PNE.Rows.Add(values);
                         }
                     }
                 }
@@ -240,10 +218,10 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             {
                 openFileDialog_PNE.ShowDialog();
                 openFilePath = openFileDialog_PNE.FileName;
-                column = System.IO.File.ReadAllLines(openFilePath).Length + 1;
+                column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
 
 
-                advancedDataGridViewDataBase_PNE.ColumnCount = column;
+                DataGridViewDataBase_PNE.ColumnCount = column;
                 using (var reader = new StreamReader(openFilePath))
                 {
                     while (!reader.EndOfStream)
@@ -251,53 +229,141 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                         var line = reader.ReadLine();
                         var values = line.Split(';');
 
-                        advancedDataGridViewDataBase_PNE.Rows.Add(values);
+                        DataGridViewDataBase_PNE.Rows.Add(values);
                     }
                 }
             }
+            column = DataGridViewDataBase_PNE.Columns.Count;
+            rows = DataGridViewDataBase_PNE.RowCount;
         }
 
         private void buttonSearch_PNE_Click(object sender, EventArgs e)
         {
-            
+                for (int i = 0; i < column; i++)
+                {
+                    for (int j = 0; j < rows; j++)
+                    {
+                        DataGridViewDataBase_PNE[i, j].Style.BackColor = Color.White;
+                    }
+                }
         }
 
         private void textBoxSearch_PNE_TextChanged(object sender, EventArgs e)
         {
-            string searchText = textBoxSearch_PNE.Text.ToLower(); //приведение к нижнему регистру
-            foreach (DataGridViewRow row in dataGridViewMain_PSV.Rows)
-            {
-                if (row.Cells["Номер"].Value != null && row.Cells["Страна"].Value != null)
-                {
-                    string column1Text = row.Cells["Номер"].Value.ToString().ToLower();
-                    string column2Text = row.Cells["Страна"].Value.ToString().ToLower();
-                    string column3Text = row.Cells["Столица"].Value.ToString().ToLower();
+                string searchValue = textBoxSearch_PNE.Text.ToLower();
 
-                    if (column1Text.Contains(searchText) || column2Text.Contains(searchText))
+                foreach (DataGridViewRow row in DataGridViewDataBase_PNE.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
                     {
-                        row.Visible = true;
-                    }
-                    else
-                    {
-                        row.Visible = false;
+                        if (cell.Value != null && cell.Value.ToString().ToLower().Contains(searchValue))
+                        {
+                            cell.Style.BackColor = Color.Yellow; // Цвет подсветки найденной ячейки
+                        }
+                        else
+                        {
+                            cell.Style.BackColor = Color.White; // Возврат цвета по умолчанию
+                        }
                     }
                 }
-            }
         }
 
         private void buttonClear_PNE_Click(object sender, EventArgs e)
         {
-            advancedDataGridViewDataBase_PNE.Rows.Clear();
+            DataGridViewDataBase_PNE.Rows.Clear();
         }
 
-        private void advancedDataGridViewDataBase_PNE_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewDataBase_PNE_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void buttonRemoveSelection_PNE_Click(object sender, EventArgs e)
+        {
+
+            for (int i = 0; i < column; i++)
+            {
+                for (int j = 0; j < rows; j++)
+                {
+                    DataGridViewDataBase_PNE[i, j].Style.BackColor = Color.White;
+                }
+            }
+        }
+
+        private void buttonRefresh_PNE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewDataBase_PNE.Rows.Clear();
+                column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
+
+
+                DataGridViewDataBase_PNE.ColumnCount = column;
+                using (var reader = new StreamReader(openFilePath))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        var values = line.Split(',');
+
+                        DataGridViewDataBase_PNE.Rows.Add(values);
+                    }
+                }
+            }
+            catch 
+            {
+                MessageBox.Show("Невозможно обновить базу данных, проверьте загружали ли вы её", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxFilter_PNE_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonFilter_PNE_Click(object sender, EventArgs e) //Кто украдёт мой код, узнаю ою этом и пожалуюсь в администрацию интернета, поняли!?
+        {
+            string filterValue = textBoxFilter_PNE.Text.ToLower();
+            string[] array = new string[column];
+            int count = 0, row_to_select = -1;
+
+            foreach (DataGridViewRow row in DataGridViewDataBase_PNE.Rows)
+            {
+                row_to_select++;
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null && cell.Value.ToString().ToLower().Contains(filterValue))
+                    {
+                        bool InArray = array.Contains(row_to_select.ToString());
+                        if (!InArray)
+                        {
+                            array[count] = row_to_select.ToString();
+                            count++;
+                        }
+                    }
+                }
+            }
+
+            int i = 0;
+            while (array[i] != null)
+            {
+                for (int j = 0; j < column; j++)
+                {
+                    DataGridViewDataBase_PNE[j, int.Parse(array[i])].Style.BackColor = Color.Red;
+                }
+                i++;
+            }
         }
 
         private void buttonAddColumn_PNE_Click(object sender, EventArgs e)
         {
-
+                try
+            {
+                DataGridViewDataBase_PNE.Rows.Add();
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //issemicolon function
@@ -328,8 +394,8 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
 
                         if (File.Exists(savepath)) File.Delete(savepath);
 
-                        int rows = advancedDataGridViewDataBase_PNE.RowCount;
-                        int columns = advancedDataGridViewDataBase_PNE.ColumnCount;
+                        int rows = DataGridViewDataBase_PNE.RowCount;
+                        int columns = DataGridViewDataBase_PNE.ColumnCount;
 
                         StringBuilder strBuilder = new StringBuilder();
 
@@ -337,7 +403,7 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                         {
                             for (int j = 0; j < columns; j++)
                             {
-                                strBuilder.Append(advancedDataGridViewDataBase_PNE.Rows[i].Cells[j].Value);
+                                strBuilder.Append(DataGridViewDataBase_PNE.Rows[i].Cells[j].Value);
 
                                 if (j != columns - 1) strBuilder.Append(",");
                             }
@@ -364,8 +430,8 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
 
                         if (File.Exists(savepath)) File.Delete(savepath);
 
-                        int rows = advancedDataGridViewDataBase_PNE.RowCount;
-                        int columns = advancedDataGridViewDataBase_PNE.ColumnCount;
+                        int rows = DataGridViewDataBase_PNE.RowCount;
+                        int columns = DataGridViewDataBase_PNE.ColumnCount;
 
                         StringBuilder strBuilder = new StringBuilder();
 
@@ -373,7 +439,7 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                         {
                             for (int j = 0; j < columns; j++)
                             {
-                                strBuilder.Append(advancedDataGridViewDataBase_PNE.Rows[i].Cells[j].Value);
+                                strBuilder.Append(DataGridViewDataBase_PNE.Rows[i].Cells[j].Value);
 
                                 if (j != columns - 1) strBuilder.Append(";");
                             }
@@ -391,19 +457,3 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         }
     }
 }
-  /*  public class Product
-    {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Patronymic { get; set; }
-        public string Account { get; set; }
-        public string Adress { get; set; }
-        public string PhoneNumber { get; set; }
-        public string OrderNumber { get; set; }
-        public string Date { get; set; }
-        public string OrderCost { get; set; }
-        public string ProductName { get; set; }
-        public string ProductCost { get; set; }
-        public string Amount { get;set; }
-    }
-}*/
