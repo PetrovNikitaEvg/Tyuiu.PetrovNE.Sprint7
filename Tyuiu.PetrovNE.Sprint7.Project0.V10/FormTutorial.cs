@@ -30,14 +30,9 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             form2.Show();
         }
 
-        private void buttonExit_PNE_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+      
         private void FormTutorial_Load(object sender, EventArgs e)
         {
-
             pictureBoxTutorial_PNE.Dock = DockStyle.Fill;
             pictureBoxTutorial_PNE.Width = 1373;
             buttonNextStep_PNE.Width = 514;
@@ -45,8 +40,6 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             textBoxNameUser_PNE.Visible = false;
             buttonApplyName_PNE.Width = 0;
 
-            buttonExit_PNE.Width = 0;
-            buttonExit_PNE.Visible = false;
 
             panelFill_PNE.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffb923"); // change color 
 
@@ -58,9 +51,6 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             buttonApplyName_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
             buttonApplyName_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
-            //Remove Background Exit in ApplyName Button
-            buttonExit_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonExit_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
         }
 
         private void buttonNextStep_PNE_Click(object sender, EventArgs e)

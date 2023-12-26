@@ -16,5 +16,15 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         {
             InitializeComponent();
         }
+
+        private void buttonExit_PNE_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FormAbout_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

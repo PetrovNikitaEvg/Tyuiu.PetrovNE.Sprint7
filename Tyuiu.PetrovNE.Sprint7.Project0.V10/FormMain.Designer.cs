@@ -50,16 +50,17 @@
             this.labelStatistics_PNE = new System.Windows.Forms.Label();
             this.comboBoxStatisticActions_PNE = new System.Windows.Forms.ComboBox();
             this.panelFileActions_PNE = new System.Windows.Forms.Panel();
+            this.buttonRemoveRow_PNE = new System.Windows.Forms.Button();
             this.checkBoxIssemicolon_PNE = new System.Windows.Forms.CheckBox();
             this.buttonSaveFile_PNE = new System.Windows.Forms.Button();
             this.buttonClear_PNE = new System.Windows.Forms.Button();
             this.buttonAddColumn_PNE = new System.Windows.Forms.Button();
             this.buttonLoadFile_PNE = new System.Windows.Forms.Button();
             this.panelDataBaseActions_PNE = new System.Windows.Forms.Panel();
+            this.buttonSort_PNE = new System.Windows.Forms.Button();
             this.buttonFilter_PNE = new System.Windows.Forms.Button();
             this.labelFilter_PNE = new System.Windows.Forms.Label();
             this.textBoxFilter_PNE = new System.Windows.Forms.TextBox();
-            this.buttonSort_PNE = new System.Windows.Forms.Button();
             this.labelSearch_PNE = new System.Windows.Forms.Label();
             this.textBoxSearch_PNE = new System.Windows.Forms.TextBox();
             this.buttonRemoveSelection_PNE = new System.Windows.Forms.Button();
@@ -70,7 +71,6 @@
             this.timerLeftPanel_PNE = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog_PNE = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog_PNE = new System.Windows.Forms.OpenFileDialog();
-            this.buttonRemoveRow_PNE = new System.Windows.Forms.Button();
             this.toolTip_PNE = new System.Windows.Forms.ToolTip(this.components);
             this.panelFill_PNE.SuspendLayout();
             this.panelDataBase_PNE.SuspendLayout();
@@ -375,6 +375,26 @@
             this.panelFileActions_PNE.Size = new System.Drawing.Size(0, 300);
             this.panelFileActions_PNE.TabIndex = 7;
             // 
+            // buttonRemoveRow_PNE
+            // 
+            this.buttonRemoveRow_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonRemoveRow_PNE.BackColor = System.Drawing.Color.Transparent;
+            this.buttonRemoveRow_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRemoveRow_PNE.FlatAppearance.BorderSize = 0;
+            this.buttonRemoveRow_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRemoveRow_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRemoveRow_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonRemoveRow_PNE.Image")));
+            this.buttonRemoveRow_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRemoveRow_PNE.Location = new System.Drawing.Point(35, 206);
+            this.buttonRemoveRow_PNE.Name = "buttonRemoveRow_PNE";
+            this.buttonRemoveRow_PNE.Size = new System.Drawing.Size(226, 51);
+            this.buttonRemoveRow_PNE.TabIndex = 8;
+            this.buttonRemoveRow_PNE.Text = "Удалить строку";
+            this.buttonRemoveRow_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip_PNE.SetToolTip(this.buttonRemoveRow_PNE, "Удалить строку\r\nУдалить выбранную строку из базы данных\r\n");
+            this.buttonRemoveRow_PNE.UseVisualStyleBackColor = false;
+            this.buttonRemoveRow_PNE.Click += new System.EventHandler(this.buttonRemoveRow_PNE_Click);
+            // 
             // checkBoxIssemicolon_PNE
             // 
             this.checkBoxIssemicolon_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -486,6 +506,27 @@
             this.panelDataBaseActions_PNE.Size = new System.Drawing.Size(397, 294);
             this.panelDataBaseActions_PNE.TabIndex = 8;
             // 
+            // buttonSort_PNE
+            // 
+            this.buttonSort_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSort_PNE.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSort_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSort_PNE.FlatAppearance.BorderSize = 0;
+            this.buttonSort_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSort_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSort_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonSort_PNE.Image")));
+            this.buttonSort_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSort_PNE.Location = new System.Drawing.Point(3, 226);
+            this.buttonSort_PNE.Name = "buttonSort_PNE";
+            this.buttonSort_PNE.Size = new System.Drawing.Size(397, 45);
+            this.buttonSort_PNE.TabIndex = 9;
+            this.buttonSort_PNE.Text = "Сортировка";
+            this.buttonSort_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip_PNE.SetToolTip(this.buttonSort_PNE, "Сортировка\r\nИнструкция для осуществления сортировки");
+            this.buttonSort_PNE.UseVisualStyleBackColor = false;
+            this.buttonSort_PNE.Click += new System.EventHandler(this.buttonSort_PNE_Click);
+            // 
             // buttonFilter_PNE
             // 
             this.buttonFilter_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -526,27 +567,6 @@
             this.textBoxFilter_PNE.TabIndex = 10;
             this.toolTip_PNE.SetToolTip(this.textBoxFilter_PNE, "Фильтрация\r\nНапишите запрос для фильтрации");
             this.textBoxFilter_PNE.TextChanged += new System.EventHandler(this.textBoxFilter_PNE_TextChanged);
-            // 
-            // buttonSort_PNE
-            // 
-            this.buttonSort_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSort_PNE.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSort_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSort_PNE.FlatAppearance.BorderSize = 0;
-            this.buttonSort_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSort_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSort_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonSort_PNE.Image")));
-            this.buttonSort_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSort_PNE.Location = new System.Drawing.Point(3, 226);
-            this.buttonSort_PNE.Name = "buttonSort_PNE";
-            this.buttonSort_PNE.Size = new System.Drawing.Size(397, 45);
-            this.buttonSort_PNE.TabIndex = 9;
-            this.buttonSort_PNE.Text = "Сортировка";
-            this.buttonSort_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip_PNE.SetToolTip(this.buttonSort_PNE, "Сортировка\r\nИнструкция для осуществления сортировки");
-            this.buttonSort_PNE.UseVisualStyleBackColor = false;
-            this.buttonSort_PNE.Click += new System.EventHandler(this.buttonSort_PNE_Click);
             // 
             // labelSearch_PNE
             // 
@@ -661,7 +681,7 @@
             this.buttonSetting_PNE.Location = new System.Drawing.Point(3, 306);
             this.buttonSetting_PNE.Name = "buttonSetting_PNE";
             this.buttonSetting_PNE.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.buttonSetting_PNE.Size = new System.Drawing.Size(400, 53);
+            this.buttonSetting_PNE.Size = new System.Drawing.Size(397, 53);
             this.buttonSetting_PNE.TabIndex = 1;
             this.buttonSetting_PNE.Text = " Настройки";
             this.buttonSetting_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -677,26 +697,6 @@
             // openFileDialog_PNE
             // 
             this.openFileDialog_PNE.FileName = "openFileDialog1";
-            // 
-            // buttonRemoveRow_PNE
-            // 
-            this.buttonRemoveRow_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonRemoveRow_PNE.BackColor = System.Drawing.Color.Transparent;
-            this.buttonRemoveRow_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRemoveRow_PNE.FlatAppearance.BorderSize = 0;
-            this.buttonRemoveRow_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRemoveRow_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRemoveRow_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonRemoveRow_PNE.Image")));
-            this.buttonRemoveRow_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRemoveRow_PNE.Location = new System.Drawing.Point(35, 206);
-            this.buttonRemoveRow_PNE.Name = "buttonRemoveRow_PNE";
-            this.buttonRemoveRow_PNE.Size = new System.Drawing.Size(226, 51);
-            this.buttonRemoveRow_PNE.TabIndex = 8;
-            this.buttonRemoveRow_PNE.Text = "Удалить строку";
-            this.buttonRemoveRow_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip_PNE.SetToolTip(this.buttonRemoveRow_PNE, "Удалить строку\r\nУдалить выбранную строку из базы данных\r\n");
-            this.buttonRemoveRow_PNE.UseVisualStyleBackColor = false;
-            this.buttonRemoveRow_PNE.Click += new System.EventHandler(this.buttonRemoveRow_PNE_Click);
             // 
             // toolTip_PNE
             // 

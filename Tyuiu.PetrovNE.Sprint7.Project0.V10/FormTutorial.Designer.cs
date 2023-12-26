@@ -36,10 +36,9 @@
             this.pictureBoxTutorialStepSecond_PNE = new System.Windows.Forms.PictureBox();
             this.pictureBoxTutorial_PNE = new System.Windows.Forms.PictureBox();
             this.panelDown_PNE = new System.Windows.Forms.Panel();
-            this.buttonNextStep_PNE = new System.Windows.Forms.Button();
-            this.textBoxNameUser_PNE = new System.Windows.Forms.TextBox();
             this.buttonApplyName_PNE = new System.Windows.Forms.Button();
-            this.buttonExit_PNE = new System.Windows.Forms.Button();
+            this.textBoxNameUser_PNE = new System.Windows.Forms.TextBox();
+            this.buttonNextStep_PNE = new System.Windows.Forms.Button();
             this.panelFill_PNE.SuspendLayout();
             this.panelPictureBox_PNE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTutorialStep4_PNE)).BeginInit();
@@ -113,7 +112,6 @@
             // 
             // panelDown_PNE
             // 
-            this.panelDown_PNE.Controls.Add(this.buttonExit_PNE);
             this.panelDown_PNE.Controls.Add(this.buttonApplyName_PNE);
             this.panelDown_PNE.Controls.Add(this.textBoxNameUser_PNE);
             this.panelDown_PNE.Controls.Add(this.buttonNextStep_PNE);
@@ -122,40 +120,6 @@
             this.panelDown_PNE.Name = "panelDown_PNE";
             this.panelDown_PNE.Size = new System.Drawing.Size(1373, 100);
             this.panelDown_PNE.TabIndex = 0;
-            // 
-            // buttonNextStep_PNE
-            // 
-            this.buttonNextStep_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNextStep_PNE.BackColor = System.Drawing.Color.Transparent;
-            this.buttonNextStep_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonNextStep_PNE.FlatAppearance.BorderSize = 0;
-            this.buttonNextStep_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNextStep_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 29F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonNextStep_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonNextStep_PNE.Image")));
-            this.buttonNextStep_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNextStep_PNE.Location = new System.Drawing.Point(906, 13);
-            this.buttonNextStep_PNE.Name = "buttonNextStep_PNE";
-            this.buttonNextStep_PNE.Size = new System.Drawing.Size(0, 84);
-            this.buttonNextStep_PNE.TabIndex = 10;
-            this.buttonNextStep_PNE.Text = "Cледующий шаг";
-            this.buttonNextStep_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonNextStep_PNE.UseVisualStyleBackColor = false;
-            this.buttonNextStep_PNE.Click += new System.EventHandler(this.buttonNextStep_PNE_Click);
-            // 
-            // textBoxNameUser_PNE
-            // 
-            this.textBoxNameUser_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNameUser_PNE.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxNameUser_PNE.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxNameUser_PNE.Location = new System.Drawing.Point(955, 6);
-            this.textBoxNameUser_PNE.Name = "textBoxNameUser_PNE";
-            this.textBoxNameUser_PNE.Size = new System.Drawing.Size(365, 36);
-            this.textBoxNameUser_PNE.TabIndex = 11;
-            this.textBoxNameUser_PNE.TabStop = false;
-            this.textBoxNameUser_PNE.Text = "Введите имя пользователя";
-            this.textBoxNameUser_PNE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonApplyName_PNE
             // 
@@ -176,26 +140,39 @@
             this.buttonApplyName_PNE.UseVisualStyleBackColor = false;
             this.buttonApplyName_PNE.Click += new System.EventHandler(this.buttonApplyName_PNE_Click);
             // 
-            // buttonExit_PNE
+            // textBoxNameUser_PNE
             // 
-            this.buttonExit_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBoxNameUser_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonExit_PNE.BackColor = System.Drawing.Color.Transparent;
-            this.buttonExit_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonExit_PNE.FlatAppearance.BorderSize = 0;
-            this.buttonExit_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 29F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonExit_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonExit_PNE.Image")));
-            this.buttonExit_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExit_PNE.Location = new System.Drawing.Point(647, 13);
-            this.buttonExit_PNE.Name = "buttonExit_PNE";
-            this.buttonExit_PNE.Size = new System.Drawing.Size(723, 84);
-            this.buttonExit_PNE.TabIndex = 13;
-            this.buttonExit_PNE.Text = "Закрыть руководство";
-            this.buttonExit_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonExit_PNE.UseVisualStyleBackColor = false;
-            this.buttonExit_PNE.Click += new System.EventHandler(this.buttonExit_PNE_Click);
+            this.textBoxNameUser_PNE.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxNameUser_PNE.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxNameUser_PNE.Location = new System.Drawing.Point(955, 6);
+            this.textBoxNameUser_PNE.Name = "textBoxNameUser_PNE";
+            this.textBoxNameUser_PNE.Size = new System.Drawing.Size(365, 36);
+            this.textBoxNameUser_PNE.TabIndex = 11;
+            this.textBoxNameUser_PNE.TabStop = false;
+            this.textBoxNameUser_PNE.Text = "Введите имя пользователя";
+            this.textBoxNameUser_PNE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // buttonNextStep_PNE
+            // 
+            this.buttonNextStep_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNextStep_PNE.BackColor = System.Drawing.Color.Transparent;
+            this.buttonNextStep_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonNextStep_PNE.FlatAppearance.BorderSize = 0;
+            this.buttonNextStep_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNextStep_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 29F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonNextStep_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonNextStep_PNE.Image")));
+            this.buttonNextStep_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNextStep_PNE.Location = new System.Drawing.Point(906, 13);
+            this.buttonNextStep_PNE.Name = "buttonNextStep_PNE";
+            this.buttonNextStep_PNE.Size = new System.Drawing.Size(0, 84);
+            this.buttonNextStep_PNE.TabIndex = 10;
+            this.buttonNextStep_PNE.Text = "Cледующий шаг";
+            this.buttonNextStep_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonNextStep_PNE.UseVisualStyleBackColor = false;
+            this.buttonNextStep_PNE.Click += new System.EventHandler(this.buttonNextStep_PNE_Click);
             // 
             // FormTutorial
             // 
@@ -234,6 +211,5 @@
         private System.Windows.Forms.PictureBox pictureBoxTutorialStep4_PNE;
         private System.Windows.Forms.Button buttonApplyName_PNE;
         private System.Windows.Forms.TextBox textBoxNameUser_PNE;
-        private System.Windows.Forms.Button buttonExit_PNE;
     }
 }

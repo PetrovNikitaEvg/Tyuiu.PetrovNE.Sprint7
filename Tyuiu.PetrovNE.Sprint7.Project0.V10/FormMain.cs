@@ -191,13 +191,16 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
 
         private void buttonTutorial_PNE_Click(object sender, EventArgs e) //Tutorial action
         {
-            FormTutorial formtutorial = new FormTutorial();
-            formtutorial.ShowDialog();
+            this.Hide();
+            var form2 = new FormTutorial();
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
         }
 
         private void buttonAbout_PNE_Click(object sender, EventArgs e)//About action
         {
-
+            FormAbout formAbout = new FormAbout();
+            formAbout.ShowDialog();
         }
 
         //DropListActions
