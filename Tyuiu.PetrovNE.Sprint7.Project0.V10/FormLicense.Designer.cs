@@ -138,6 +138,7 @@
             this.ClientSize = new System.Drawing.Size(902, 610);
             this.Controls.Add(this.panelFill_PNE);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(924, 661);
             this.MinimizeBox = false;

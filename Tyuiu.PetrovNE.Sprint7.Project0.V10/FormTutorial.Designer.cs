@@ -37,6 +37,7 @@
             this.pictureBoxTutorialStepSecond_PNE = new System.Windows.Forms.PictureBox();
             this.pictureBoxTutorial_PNE = new System.Windows.Forms.PictureBox();
             this.panelDown_PNE = new System.Windows.Forms.Panel();
+            this.buttonLoadFile_PNE = new System.Windows.Forms.Button();
             this.buttonApplyName_PNE = new System.Windows.Forms.Button();
             this.textBoxNameUser_PNE = new System.Windows.Forms.TextBox();
             this.buttonNextStep_PNE = new System.Windows.Forms.Button();
@@ -114,6 +115,7 @@
             // 
             // panelDown_PNE
             // 
+            this.panelDown_PNE.Controls.Add(this.buttonLoadFile_PNE);
             this.panelDown_PNE.Controls.Add(this.buttonApplyName_PNE);
             this.panelDown_PNE.Controls.Add(this.textBoxNameUser_PNE);
             this.panelDown_PNE.Controls.Add(this.buttonNextStep_PNE);
@@ -122,6 +124,25 @@
             this.panelDown_PNE.Name = "panelDown_PNE";
             this.panelDown_PNE.Size = new System.Drawing.Size(1373, 100);
             this.panelDown_PNE.TabIndex = 0;
+            // 
+            // buttonLoadFile_PNE
+            // 
+            this.buttonLoadFile_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonLoadFile_PNE.BackColor = System.Drawing.Color.Transparent;
+            this.buttonLoadFile_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLoadFile_PNE.FlatAppearance.BorderSize = 0;
+            this.buttonLoadFile_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLoadFile_PNE.Font = new System.Drawing.Font("Microsoft Yi Baiti", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonLoadFile_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonLoadFile_PNE.Image")));
+            this.buttonLoadFile_PNE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonLoadFile_PNE.Location = new System.Drawing.Point(0, 45);
+            this.buttonLoadFile_PNE.Name = "buttonLoadFile_PNE";
+            this.buttonLoadFile_PNE.Size = new System.Drawing.Size(603, 52);
+            this.buttonLoadFile_PNE.TabIndex = 13;
+            this.buttonLoadFile_PNE.Text = "Скачать тестовую базу данных";
+            this.buttonLoadFile_PNE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonLoadFile_PNE.UseVisualStyleBackColor = false;
+            this.buttonLoadFile_PNE.Click += new System.EventHandler(this.buttonLoadFile_PNE_Click);
             // 
             // buttonApplyName_PNE
             // 
@@ -220,5 +241,6 @@
         private System.Windows.Forms.Button buttonApplyName_PNE;
         private System.Windows.Forms.TextBox textBoxNameUser_PNE;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button buttonLoadFile_PNE;
     }
 }

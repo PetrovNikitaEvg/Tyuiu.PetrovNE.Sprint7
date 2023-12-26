@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+
 
 namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
 {
@@ -30,7 +32,15 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             form2.Show();
         }
 
-      
+        private void buttonLoadFile_PNE_Click(object sender, EventArgs e)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                System.Diagnostics.Process.Start("https://drive.google.com/file/d/1YyUZUbGL4GUGphWTAQjwFtENkbnndevr/view?usp=drive_link");
+                this.WindowState = FormWindowState.Minimized;
+            }
+        }
+
         private void FormTutorial_Load(object sender, EventArgs e)
         {
             pictureBoxTutorial_PNE.Dock = DockStyle.Fill;
