@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTutorial));
             this.panelFill_PNE = new System.Windows.Forms.Panel();
             this.panelPictureBox_PNE = new System.Windows.Forms.Panel();
@@ -39,6 +40,7 @@
             this.buttonApplyName_PNE = new System.Windows.Forms.Button();
             this.textBoxNameUser_PNE = new System.Windows.Forms.TextBox();
             this.buttonNextStep_PNE = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panelFill_PNE.SuspendLayout();
             this.panelPictureBox_PNE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTutorialStep4_PNE)).BeginInit();
@@ -174,6 +176,12 @@
             this.buttonNextStep_PNE.UseVisualStyleBackColor = false;
             this.buttonNextStep_PNE.Click += new System.EventHandler(this.buttonNextStep_PNE_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // FormTutorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -211,5 +219,6 @@
         private System.Windows.Forms.PictureBox pictureBoxTutorialStep4_PNE;
         private System.Windows.Forms.Button buttonApplyName_PNE;
         private System.Windows.Forms.TextBox textBoxNameUser_PNE;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

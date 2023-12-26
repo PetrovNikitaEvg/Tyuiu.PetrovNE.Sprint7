@@ -31,6 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAbout));
             this.panelFill_PNE = new System.Windows.Forms.Panel();
+            this.panelTask_PNE = new System.Windows.Forms.Panel();
+            this.pictureBoxTask_PNE = new System.Windows.Forms.PictureBox();
+            this.panelCreationProcess_PNE = new System.Windows.Forms.Panel();
+            this.pictureBoxProcessCreation_PNE = new System.Windows.Forms.PictureBox();
+            this.panelAboutCreator_PNE = new System.Windows.Forms.Panel();
+            this.labelAboutCreator_PNE = new System.Windows.Forms.Label();
+            this.pictureBoxGoToTg_PNE = new System.Windows.Forms.PictureBox();
+            this.pictureBoxGoToGithub_PNE = new System.Windows.Forms.PictureBox();
+            this.pictureBoxGoToVk_PNE = new System.Windows.Forms.PictureBox();
             this.pictureBoxPhoto_PNE = new System.Windows.Forms.PictureBox();
             this.panelLeft_PNE = new System.Windows.Forms.Panel();
             this.buttonShowTask_PNE = new System.Windows.Forms.Button();
@@ -39,28 +48,19 @@
             this.pictureBoxLogo_PNE = new System.Windows.Forms.PictureBox();
             this.buttonShowAboutCreator_PNE = new System.Windows.Forms.Button();
             this.buttonExit_PNE = new System.Windows.Forms.Button();
-            this.labelAboutCreator_PNE = new System.Windows.Forms.Label();
-            this.pictureBoxGoToGithub_PNE = new System.Windows.Forms.PictureBox();
-            this.pictureBoxGoToVk_PNE = new System.Windows.Forms.PictureBox();
-            this.pictureBoxGoToTg_PNE = new System.Windows.Forms.PictureBox();
-            this.panelAboutCreator_PNE = new System.Windows.Forms.Panel();
             this.toolTip_PNE = new System.Windows.Forms.ToolTip(this.components);
-            this.panelCreationProcess_PNE = new System.Windows.Forms.Panel();
-            this.pictureBoxProcessCreation_PNE = new System.Windows.Forms.PictureBox();
-            this.panelTask_PNE = new System.Windows.Forms.Panel();
-            this.pictureBoxTask_PNE = new System.Windows.Forms.PictureBox();
             this.panelFill_PNE.SuspendLayout();
+            this.panelTask_PNE.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTask_PNE)).BeginInit();
+            this.panelCreationProcess_PNE.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProcessCreation_PNE)).BeginInit();
+            this.panelAboutCreator_PNE.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToTg_PNE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToGithub_PNE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToVk_PNE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto_PNE)).BeginInit();
             this.panelLeft_PNE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo_PNE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToGithub_PNE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToVk_PNE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToTg_PNE)).BeginInit();
-            this.panelAboutCreator_PNE.SuspendLayout();
-            this.panelCreationProcess_PNE.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProcessCreation_PNE)).BeginInit();
-            this.panelTask_PNE.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTask_PNE)).BeginInit();
             this.SuspendLayout();
             // 
             // panelFill_PNE
@@ -75,6 +75,104 @@
             this.panelFill_PNE.Name = "panelFill_PNE";
             this.panelFill_PNE.Size = new System.Drawing.Size(1181, 674);
             this.panelFill_PNE.TabIndex = 0;
+            // 
+            // panelTask_PNE
+            // 
+            this.panelTask_PNE.Controls.Add(this.pictureBoxTask_PNE);
+            this.panelTask_PNE.Location = new System.Drawing.Point(488, 0);
+            this.panelTask_PNE.Name = "panelTask_PNE";
+            this.panelTask_PNE.Size = new System.Drawing.Size(693, 674);
+            this.panelTask_PNE.TabIndex = 8;
+            // 
+            // pictureBoxTask_PNE
+            // 
+            this.pictureBoxTask_PNE.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTask_PNE.Image")));
+            this.pictureBoxTask_PNE.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxTask_PNE.Name = "pictureBoxTask_PNE";
+            this.pictureBoxTask_PNE.Size = new System.Drawing.Size(693, 674);
+            this.pictureBoxTask_PNE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxTask_PNE.TabIndex = 0;
+            this.pictureBoxTask_PNE.TabStop = false;
+            // 
+            // panelCreationProcess_PNE
+            // 
+            this.panelCreationProcess_PNE.Controls.Add(this.pictureBoxProcessCreation_PNE);
+            this.panelCreationProcess_PNE.Location = new System.Drawing.Point(488, 0);
+            this.panelCreationProcess_PNE.Name = "panelCreationProcess_PNE";
+            this.panelCreationProcess_PNE.Size = new System.Drawing.Size(0, 671);
+            this.panelCreationProcess_PNE.TabIndex = 7;
+            // 
+            // pictureBoxProcessCreation_PNE
+            // 
+            this.pictureBoxProcessCreation_PNE.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxProcessCreation_PNE.Image")));
+            this.pictureBoxProcessCreation_PNE.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxProcessCreation_PNE.Name = "pictureBoxProcessCreation_PNE";
+            this.pictureBoxProcessCreation_PNE.Size = new System.Drawing.Size(693, 674);
+            this.pictureBoxProcessCreation_PNE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxProcessCreation_PNE.TabIndex = 0;
+            this.pictureBoxProcessCreation_PNE.TabStop = false;
+            // 
+            // panelAboutCreator_PNE
+            // 
+            this.panelAboutCreator_PNE.Controls.Add(this.labelAboutCreator_PNE);
+            this.panelAboutCreator_PNE.Controls.Add(this.pictureBoxGoToTg_PNE);
+            this.panelAboutCreator_PNE.Controls.Add(this.pictureBoxGoToGithub_PNE);
+            this.panelAboutCreator_PNE.Controls.Add(this.pictureBoxGoToVk_PNE);
+            this.panelAboutCreator_PNE.Location = new System.Drawing.Point(488, 3);
+            this.panelAboutCreator_PNE.Name = "panelAboutCreator_PNE";
+            this.panelAboutCreator_PNE.Size = new System.Drawing.Size(0, 671);
+            this.panelAboutCreator_PNE.TabIndex = 6;
+            // 
+            // labelAboutCreator_PNE
+            // 
+            this.labelAboutCreator_PNE.Cursor = System.Windows.Forms.Cursors.Default;
+            this.labelAboutCreator_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.labelAboutCreator_PNE.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelAboutCreator_PNE.Location = new System.Drawing.Point(6, 94);
+            this.labelAboutCreator_PNE.Name = "labelAboutCreator_PNE";
+            this.labelAboutCreator_PNE.Size = new System.Drawing.Size(672, 233);
+            this.labelAboutCreator_PNE.TabIndex = 2;
+            this.labelAboutCreator_PNE.Text = "Разработчик: \r\nПетров Никита Евгеньевич\r\nВуз:\r\nТюменский Индустриальный Университ" +
+    "ет\r\nГруппа:\r\nАСОиУБ-23-1\r\n\r\n";
+            // 
+            // pictureBoxGoToTg_PNE
+            // 
+            this.pictureBoxGoToTg_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxGoToTg_PNE.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoToTg_PNE.Image")));
+            this.pictureBoxGoToTg_PNE.Location = new System.Drawing.Point(489, 330);
+            this.pictureBoxGoToTg_PNE.Name = "pictureBoxGoToTg_PNE";
+            this.pictureBoxGoToTg_PNE.Size = new System.Drawing.Size(166, 149);
+            this.pictureBoxGoToTg_PNE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxGoToTg_PNE.TabIndex = 5;
+            this.pictureBoxGoToTg_PNE.TabStop = false;
+            this.toolTip_PNE.SetToolTip(this.pictureBoxGoToTg_PNE, "Telegram\r\nПерейти на Telegram канал разработчика");
+            this.pictureBoxGoToTg_PNE.Click += new System.EventHandler(this.pictureBoxGoToTg_PNE_Click);
+            // 
+            // pictureBoxGoToGithub_PNE
+            // 
+            this.pictureBoxGoToGithub_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxGoToGithub_PNE.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoToGithub_PNE.Image")));
+            this.pictureBoxGoToGithub_PNE.Location = new System.Drawing.Point(37, 330);
+            this.pictureBoxGoToGithub_PNE.Name = "pictureBoxGoToGithub_PNE";
+            this.pictureBoxGoToGithub_PNE.Size = new System.Drawing.Size(166, 149);
+            this.pictureBoxGoToGithub_PNE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxGoToGithub_PNE.TabIndex = 3;
+            this.pictureBoxGoToGithub_PNE.TabStop = false;
+            this.toolTip_PNE.SetToolTip(this.pictureBoxGoToGithub_PNE, "GITHUB\r\nПерейти на GITHUB аккаунт разработчика");
+            this.pictureBoxGoToGithub_PNE.Click += new System.EventHandler(this.pictureBoxGoToGithub_PNE_Click);
+            // 
+            // pictureBoxGoToVk_PNE
+            // 
+            this.pictureBoxGoToVk_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxGoToVk_PNE.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoToVk_PNE.Image")));
+            this.pictureBoxGoToVk_PNE.Location = new System.Drawing.Point(264, 330);
+            this.pictureBoxGoToVk_PNE.Name = "pictureBoxGoToVk_PNE";
+            this.pictureBoxGoToVk_PNE.Size = new System.Drawing.Size(166, 149);
+            this.pictureBoxGoToVk_PNE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxGoToVk_PNE.TabIndex = 4;
+            this.pictureBoxGoToVk_PNE.TabStop = false;
+            this.toolTip_PNE.SetToolTip(this.pictureBoxGoToVk_PNE, "VKonttakte\r\nПерейти на VK аккаунт разработчика");
+            this.pictureBoxGoToVk_PNE.Click += new System.EventHandler(this.pictureBoxGoToVk_PNE_Click);
             // 
             // pictureBoxPhoto_PNE
             // 
@@ -220,108 +318,10 @@
             this.buttonExit_PNE.UseVisualStyleBackColor = false;
             this.buttonExit_PNE.Click += new System.EventHandler(this.buttonExit_PNE_Click_1);
             // 
-            // labelAboutCreator_PNE
-            // 
-            this.labelAboutCreator_PNE.Cursor = System.Windows.Forms.Cursors.Default;
-            this.labelAboutCreator_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.labelAboutCreator_PNE.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAboutCreator_PNE.Location = new System.Drawing.Point(6, 94);
-            this.labelAboutCreator_PNE.Name = "labelAboutCreator_PNE";
-            this.labelAboutCreator_PNE.Size = new System.Drawing.Size(672, 233);
-            this.labelAboutCreator_PNE.TabIndex = 2;
-            this.labelAboutCreator_PNE.Text = "Разработчик: \r\nПетров Никита Евгеньевич\r\nВуз:\r\nТюменский Индустриальный Университ" +
-    "ет\r\nГруппа:\r\nАСОиУБ-23-1\r\n\r\n";
-            // 
-            // pictureBoxGoToGithub_PNE
-            // 
-            this.pictureBoxGoToGithub_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGoToGithub_PNE.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoToGithub_PNE.Image")));
-            this.pictureBoxGoToGithub_PNE.Location = new System.Drawing.Point(37, 330);
-            this.pictureBoxGoToGithub_PNE.Name = "pictureBoxGoToGithub_PNE";
-            this.pictureBoxGoToGithub_PNE.Size = new System.Drawing.Size(166, 149);
-            this.pictureBoxGoToGithub_PNE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxGoToGithub_PNE.TabIndex = 3;
-            this.pictureBoxGoToGithub_PNE.TabStop = false;
-            this.toolTip_PNE.SetToolTip(this.pictureBoxGoToGithub_PNE, "GITHUB\r\nПерейти на GITHUB аккаунт разработчика");
-            this.pictureBoxGoToGithub_PNE.Click += new System.EventHandler(this.pictureBoxGoToGithub_PNE_Click);
-            // 
-            // pictureBoxGoToVk_PNE
-            // 
-            this.pictureBoxGoToVk_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGoToVk_PNE.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoToVk_PNE.Image")));
-            this.pictureBoxGoToVk_PNE.Location = new System.Drawing.Point(264, 330);
-            this.pictureBoxGoToVk_PNE.Name = "pictureBoxGoToVk_PNE";
-            this.pictureBoxGoToVk_PNE.Size = new System.Drawing.Size(166, 149);
-            this.pictureBoxGoToVk_PNE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxGoToVk_PNE.TabIndex = 4;
-            this.pictureBoxGoToVk_PNE.TabStop = false;
-            this.toolTip_PNE.SetToolTip(this.pictureBoxGoToVk_PNE, "VKonttakte\r\nПерейти на VK аккаунт разработчика");
-            this.pictureBoxGoToVk_PNE.Click += new System.EventHandler(this.pictureBoxGoToVk_PNE_Click);
-            // 
-            // pictureBoxGoToTg_PNE
-            // 
-            this.pictureBoxGoToTg_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGoToTg_PNE.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoToTg_PNE.Image")));
-            this.pictureBoxGoToTg_PNE.Location = new System.Drawing.Point(489, 330);
-            this.pictureBoxGoToTg_PNE.Name = "pictureBoxGoToTg_PNE";
-            this.pictureBoxGoToTg_PNE.Size = new System.Drawing.Size(166, 149);
-            this.pictureBoxGoToTg_PNE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxGoToTg_PNE.TabIndex = 5;
-            this.pictureBoxGoToTg_PNE.TabStop = false;
-            this.toolTip_PNE.SetToolTip(this.pictureBoxGoToTg_PNE, "Telegram\r\nПерейти на Telegram канал разработчика");
-            this.pictureBoxGoToTg_PNE.Click += new System.EventHandler(this.pictureBoxGoToTg_PNE_Click);
-            // 
-            // panelAboutCreator_PNE
-            // 
-            this.panelAboutCreator_PNE.Controls.Add(this.labelAboutCreator_PNE);
-            this.panelAboutCreator_PNE.Controls.Add(this.pictureBoxGoToTg_PNE);
-            this.panelAboutCreator_PNE.Controls.Add(this.pictureBoxGoToGithub_PNE);
-            this.panelAboutCreator_PNE.Controls.Add(this.pictureBoxGoToVk_PNE);
-            this.panelAboutCreator_PNE.Location = new System.Drawing.Point(488, 3);
-            this.panelAboutCreator_PNE.Name = "panelAboutCreator_PNE";
-            this.panelAboutCreator_PNE.Size = new System.Drawing.Size(0, 671);
-            this.panelAboutCreator_PNE.TabIndex = 6;
-            // 
             // toolTip_PNE
             // 
             this.toolTip_PNE.IsBalloon = true;
             this.toolTip_PNE.ToolTipTitle = "Подсказка";
-            // 
-            // panelCreationProcess_PNE
-            // 
-            this.panelCreationProcess_PNE.Controls.Add(this.pictureBoxProcessCreation_PNE);
-            this.panelCreationProcess_PNE.Location = new System.Drawing.Point(488, 0);
-            this.panelCreationProcess_PNE.Name = "panelCreationProcess_PNE";
-            this.panelCreationProcess_PNE.Size = new System.Drawing.Size(0, 671);
-            this.panelCreationProcess_PNE.TabIndex = 7;
-            // 
-            // pictureBoxProcessCreation_PNE
-            // 
-            this.pictureBoxProcessCreation_PNE.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxProcessCreation_PNE.Image")));
-            this.pictureBoxProcessCreation_PNE.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxProcessCreation_PNE.Name = "pictureBoxProcessCreation_PNE";
-            this.pictureBoxProcessCreation_PNE.Size = new System.Drawing.Size(693, 674);
-            this.pictureBoxProcessCreation_PNE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxProcessCreation_PNE.TabIndex = 0;
-            this.pictureBoxProcessCreation_PNE.TabStop = false;
-            // 
-            // panelTask_PNE
-            // 
-            this.panelTask_PNE.Controls.Add(this.pictureBoxTask_PNE);
-            this.panelTask_PNE.Location = new System.Drawing.Point(488, 0);
-            this.panelTask_PNE.Name = "panelTask_PNE";
-            this.panelTask_PNE.Size = new System.Drawing.Size(693, 674);
-            this.panelTask_PNE.TabIndex = 8;
-            // 
-            // pictureBoxTask_PNE
-            // 
-            this.pictureBoxTask_PNE.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTask_PNE.Image")));
-            this.pictureBoxTask_PNE.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxTask_PNE.Name = "pictureBoxTask_PNE";
-            this.pictureBoxTask_PNE.Size = new System.Drawing.Size(693, 674);
-            this.pictureBoxTask_PNE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxTask_PNE.TabIndex = 0;
-            this.pictureBoxTask_PNE.TabStop = false;
             // 
             // FormAbout
             // 
@@ -341,17 +341,17 @@
             this.TopMost = true;
             this.Load += new System.EventHandler(this.FormAbout_Load);
             this.panelFill_PNE.ResumeLayout(false);
+            this.panelTask_PNE.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTask_PNE)).EndInit();
+            this.panelCreationProcess_PNE.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProcessCreation_PNE)).EndInit();
+            this.panelAboutCreator_PNE.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToTg_PNE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToGithub_PNE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToVk_PNE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto_PNE)).EndInit();
             this.panelLeft_PNE.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo_PNE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToGithub_PNE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToVk_PNE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoToTg_PNE)).EndInit();
-            this.panelAboutCreator_PNE.ResumeLayout(false);
-            this.panelCreationProcess_PNE.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProcessCreation_PNE)).EndInit();
-            this.panelTask_PNE.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTask_PNE)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -89,16 +89,19 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         private void pictureBoxGoToGithub_PNE_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/PetrovNikitaEvg");
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void pictureBoxGoToVk_PNE_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://vk.com/shugizawa");
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void pictureBoxGoToTg_PNE_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://t.me/PetrNIkita");
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

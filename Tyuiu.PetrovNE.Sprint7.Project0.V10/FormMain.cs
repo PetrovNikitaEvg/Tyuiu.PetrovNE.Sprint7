@@ -13,21 +13,36 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 using Tyuiu.PetrovNE.Sprint7.Project0.V10.Lib;
+using System.Reflection.Emit;
 
 namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
 {
     public partial class FormMain : Form
     {
         public static FormMain instance;
+        public static System.Media.SoundPlayer sp0;
+        public static System.Media.SoundPlayer sp1;
         public FormMain()
         {
             InitializeComponent();
-            instance = this;
+
             labelUserName_PNE.Text = $"Текущий пользователь: {UserName}";
+
+            string Music_Path0 = @"C:\Users\niki8\source\repos\Tyuiu.PetrovNE.Sprint7\Song1.wav";
+            string Music_Path1 = @"C:\Users\niki8\source\repos\Tyuiu.PetrovNE.Sprint7\Song0.wav";
+
+            instance = this;
+
+            sp0 = new System.Media.SoundPlayer(Music_Path0);
+            sp0.Stop();
+
+            sp1 = new System.Media.SoundPlayer(Music_Path1);
+            sp1.Stop();
         }
 
+
         public string openFilePath;
-        bool isShow = false, isinprogress = false, issemicolon = false, is_row_was_added;
+        public bool isShow = false, isinprogress = false, issemicolon = false, is_row_was_added, is_music_on = false, is_sound_on = true;
         public int column, rows;
         public int[] Order_costs_array;
         public String[] Bank_Account_array;
@@ -40,7 +55,6 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             panelDataBaseActions_PNE.Width = 0;
             panelStatisticActions_PNE.Width = 0;
         }
-
         private void RemoveBackgroundSelection()
         {
             //MENU ACTIONS
@@ -123,6 +137,7 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             }
 
         }
+
         private void FormMain_Load(object sender, EventArgs e) // Load funtcion for form
         {
             MessageBox.Show($"Здравствуйте, {UserName}.\nЕсли возникнет желание почитать руководство ещё раз, это можно сделать через главное меню", "Приветствие", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -183,15 +198,20 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         //MenuActions
         private void buttonSetting_PNE_Click(object sender, EventArgs e) //Setting action
         {
+            FormSetting formsetting = new FormSetting();
+            formsetting.ShowDialog();
         }
 
 
         private void buttonTutorial_PNE_Click(object sender, EventArgs e) //Tutorial action
         {
+            if (MessageBox.Show("Если открыть руководство программа будет перезапущена\nВы уверены, что хотите закрыть файл?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            { 
             this.Hide();
             var form2 = new FormTutorial();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
+            }
         }
 
         private void buttonAbout_PNE_Click(object sender, EventArgs e)//About action
