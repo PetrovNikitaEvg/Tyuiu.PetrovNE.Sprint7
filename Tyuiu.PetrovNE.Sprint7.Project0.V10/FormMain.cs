@@ -23,6 +23,7 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         {
             InitializeComponent();
             instance = this;
+            labelUserName_PNE.Text = $"Текущий пользователь: {UserName}";
         }
 
         public string openFilePath;
@@ -75,9 +76,6 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                 buttonOpenFunctionWindow_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
                 buttonOpenFunctionWindow_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
-                //Remove Background Selection in Refresh button
-                buttonRefresh_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
-                buttonRefresh_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
             }
 
             //FILE ACTIONS
@@ -139,7 +137,6 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             panelSlideLeft_PNE.Hide(); // Panel is hide from load program
 
             buttonOpenFunctionWindow_PNE.Enabled = false;
-            buttonRefresh_PNE.Enabled = false;
             buttonStatisticDropList_PNE.Enabled = false;
             buttonDataBaseDropList_PNE.Enabled = false;
 
@@ -286,11 +283,11 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         {
             DataGridViewDataBase_PNE.AllowUserToAddRows = false;
             DataGridViewDataBase_PNE.Rows.Clear();
-            if (!issemicolon)
+            try
             {
-                try
-                {
-                    DataGridViewDataBase_PNE.AllowUserToAddRows = false;
+                if (!issemicolon)
+            {
+                    DataGridViewDataBase_PNE.AllowUserToAddRows = false; 
                     openFileDialog_PNE.ShowDialog();
                     openFilePath = openFileDialog_PNE.FileName;
                     column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
@@ -308,36 +305,36 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
                         }
                     }
                 }
+            else
+                {
+                    DataGridViewDataBase_PNE.AllowUserToAddRows = false;
+                    openFileDialog_PNE.ShowDialog();
+                    openFilePath = openFileDialog_PNE.FileName;
+                    column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
+
+
+                    DataGridViewDataBase_PNE.ColumnCount = column;
+                    using (var reader = new StreamReader(openFilePath))
+                    {
+                        while (!reader.EndOfStream)
+                        {
+                            var line = reader.ReadLine();
+                            var values = line.Split(';');
+
+                            DataGridViewDataBase_PNE.Rows.Add(values);
+                        }
+                    }
+                }
+            }
                 catch
                 {
                     MessageBox.Show("Введены неверные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else
-            {
-                DataGridViewDataBase_PNE.AllowUserToAddRows = false;
-                openFileDialog_PNE.ShowDialog();
-                openFilePath = openFileDialog_PNE.FileName;
-                column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
 
-
-                DataGridViewDataBase_PNE.ColumnCount = column;
-                using (var reader = new StreamReader(openFilePath))
-                {
-                    while (!reader.EndOfStream)
-                    {
-                        var line = reader.ReadLine();
-                        var values = line.Split(';');
-
-                        DataGridViewDataBase_PNE.Rows.Add(values);
-                    }
-                }
-            }
-            column = DataGridViewDataBase_PNE.Columns.Count;
+                column = DataGridViewDataBase_PNE.Columns.Count;
             rows = DataGridViewDataBase_PNE.RowCount - 1;
 
             buttonOpenFunctionWindow_PNE.Enabled = true;
-            buttonRefresh_PNE.Enabled = true;
             buttonStatisticDropList_PNE.Enabled = true;
             buttonDataBaseDropList_PNE.Enabled = true;
 
@@ -407,28 +404,46 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
         //RELOAD DATABASE
         private void buttonRefresh_PNE_Click(object sender, EventArgs e)
         {
+            DataGridViewDataBase_PNE.AllowUserToAddRows = false;
+            DataGridViewDataBase_PNE.Rows.Clear();
             try
             {
-                DataGridViewDataBase_PNE.AllowUserToAddRows = false;
-                DataGridViewDataBase_PNE.Rows.Clear();
-                column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
-
-
-                DataGridViewDataBase_PNE.ColumnCount = column;
-                using (var reader = new StreamReader(openFilePath))
+                if (!issemicolon)
                 {
-                    while (!reader.EndOfStream)
-                    {
-                        var line = reader.ReadLine();
-                        var values = line.Split(',');
+                    column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
 
-                        DataGridViewDataBase_PNE.Rows.Add(values);
+                    DataGridViewDataBase_PNE.ColumnCount = column;
+                    using (var reader = new StreamReader(openFilePath))
+                    {
+                        while (!reader.EndOfStream)
+                        {
+                            var line = reader.ReadLine();
+                            var values = line.Split(',');
+
+                            DataGridViewDataBase_PNE.Rows.Add(values);
+                        }
+                    }
+                }
+                else
+                {
+                    column = System.IO.File.ReadAllLines(openFilePath, Encoding.UTF8).Length + 1;
+
+                    DataGridViewDataBase_PNE.ColumnCount = column;
+                    using (var reader = new StreamReader(openFilePath))
+                    {
+                        while (!reader.EndOfStream)
+                        {
+                            var line = reader.ReadLine();
+                            var values = line.Split(';');
+
+                            DataGridViewDataBase_PNE.Rows.Add(values);
+                        }
                     }
                 }
             }
-            catch 
+            catch
             {
-                MessageBox.Show("Невозможно обновить базу данных, проверьте загружали ли вы её", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Произошла ошибка обновления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

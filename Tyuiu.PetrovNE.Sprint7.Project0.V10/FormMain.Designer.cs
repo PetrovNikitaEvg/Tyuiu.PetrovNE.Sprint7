@@ -34,7 +34,6 @@
             this.panelDataBase_PNE = new System.Windows.Forms.Panel();
             this.DataGridViewDataBase_PNE = new System.Windows.Forms.DataGridView();
             this.panelButtons_PNE = new System.Windows.Forms.Panel();
-            this.buttonRefresh_PNE = new System.Windows.Forms.Button();
             this.groupBoxResult_PNE = new System.Windows.Forms.GroupBox();
             this.textBoxResult_PNE = new System.Windows.Forms.TextBox();
             this.buttonOpenFunctionWindow_PNE = new System.Windows.Forms.Button();
@@ -72,6 +71,7 @@
             this.saveFileDialog_PNE = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog_PNE = new System.Windows.Forms.OpenFileDialog();
             this.toolTip_PNE = new System.Windows.Forms.ToolTip(this.components);
+            this.labelUserName_PNE = new System.Windows.Forms.Label();
             this.panelFill_PNE.SuspendLayout();
             this.panelDataBase_PNE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewDataBase_PNE)).BeginInit();
@@ -118,7 +118,7 @@
             this.DataGridViewDataBase_PNE.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DataGridViewDataBase_PNE.BackgroundColor = System.Drawing.SystemColors.Control;
             this.DataGridViewDataBase_PNE.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DataGridViewDataBase_PNE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewDataBase_PNE.ColumnHeadersHeight = 29;
             this.DataGridViewDataBase_PNE.Location = new System.Drawing.Point(0, -3);
             this.DataGridViewDataBase_PNE.Name = "DataGridViewDataBase_PNE";
             this.DataGridViewDataBase_PNE.RowHeadersVisible = false;
@@ -131,7 +131,6 @@
             // panelButtons_PNE
             // 
             this.panelButtons_PNE.BackColor = System.Drawing.SystemColors.Control;
-            this.panelButtons_PNE.Controls.Add(this.buttonRefresh_PNE);
             this.panelButtons_PNE.Controls.Add(this.groupBoxResult_PNE);
             this.panelButtons_PNE.Controls.Add(this.buttonOpenFunctionWindow_PNE);
             this.panelButtons_PNE.Controls.Add(this.buttonStatisticDropList_PNE);
@@ -144,21 +143,6 @@
             this.panelButtons_PNE.Size = new System.Drawing.Size(1073, 108);
             this.panelButtons_PNE.TabIndex = 1;
             // 
-            // buttonRefresh_PNE
-            // 
-            this.buttonRefresh_PNE.BackColor = System.Drawing.Color.Transparent;
-            this.buttonRefresh_PNE.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRefresh_PNE.FlatAppearance.BorderSize = 0;
-            this.buttonRefresh_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRefresh_PNE.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh_PNE.Image")));
-            this.buttonRefresh_PNE.Location = new System.Drawing.Point(724, 3);
-            this.buttonRefresh_PNE.Name = "buttonRefresh_PNE";
-            this.buttonRefresh_PNE.Size = new System.Drawing.Size(120, 102);
-            this.buttonRefresh_PNE.TabIndex = 7;
-            this.toolTip_PNE.SetToolTip(this.buttonRefresh_PNE, "Сбросить\r\nСбросить изменения в загруженной базе данных\r\n");
-            this.buttonRefresh_PNE.UseVisualStyleBackColor = false;
-            this.buttonRefresh_PNE.Click += new System.EventHandler(this.buttonRefresh_PNE_Click);
-            // 
             // groupBoxResult_PNE
             // 
             this.groupBoxResult_PNE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -167,9 +151,9 @@
             this.groupBoxResult_PNE.BackColor = System.Drawing.SystemColors.Control;
             this.groupBoxResult_PNE.Controls.Add(this.textBoxResult_PNE);
             this.groupBoxResult_PNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxResult_PNE.Location = new System.Drawing.Point(874, 5);
+            this.groupBoxResult_PNE.Location = new System.Drawing.Point(724, 5);
             this.groupBoxResult_PNE.Name = "groupBoxResult_PNE";
-            this.groupBoxResult_PNE.Size = new System.Drawing.Size(196, 100);
+            this.groupBoxResult_PNE.Size = new System.Drawing.Size(337, 100);
             this.groupBoxResult_PNE.TabIndex = 6;
             this.groupBoxResult_PNE.TabStop = false;
             this.groupBoxResult_PNE.Text = "Результат выполнения программы статистики:";
@@ -185,7 +169,7 @@
             this.textBoxResult_PNE.Multiline = true;
             this.textBoxResult_PNE.Name = "textBoxResult_PNE";
             this.textBoxResult_PNE.ReadOnly = true;
-            this.textBoxResult_PNE.Size = new System.Drawing.Size(185, 79);
+            this.textBoxResult_PNE.Size = new System.Drawing.Size(326, 79);
             this.textBoxResult_PNE.TabIndex = 5;
             this.textBoxResult_PNE.Text = "Ваш ответ";
             this.textBoxResult_PNE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -277,6 +261,7 @@
             // panelFlowFill_PNE
             // 
             this.panelFlowFill_PNE.BackColor = System.Drawing.Color.Transparent;
+            this.panelFlowFill_PNE.Controls.Add(this.labelUserName_PNE);
             this.panelFlowFill_PNE.Controls.Add(this.panelFlowDown_PNE);
             this.panelFlowFill_PNE.Controls.Add(this.buttonAbout_PNE);
             this.panelFlowFill_PNE.Controls.Add(this.pictureBoxLogo_PNE);
@@ -704,12 +689,21 @@
             this.toolTip_PNE.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip_PNE.ToolTipTitle = "Подсказка";
             // 
+            // labelUserName_PNE
+            // 
+            this.labelUserName_PNE.AutoSize = true;
+            this.labelUserName_PNE.Location = new System.Drawing.Point(65, 284);
+            this.labelUserName_PNE.Name = "labelUserName_PNE";
+            this.labelUserName_PNE.Size = new System.Drawing.Size(0, 16);
+            this.labelUserName_PNE.TabIndex = 6;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1473, 792);
             this.Controls.Add(this.panelFill_PNE);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1491, 839);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -724,6 +718,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSlideMenu_PNE)).EndInit();
             this.panelSlideLeft_PNE.ResumeLayout(false);
             this.panelFlowFill_PNE.ResumeLayout(false);
+            this.panelFlowFill_PNE.PerformLayout();
             this.panelFlowDown_PNE.ResumeLayout(false);
             this.panelStatisticActions_PNE.ResumeLayout(false);
             this.panelStatisticActions_PNE.PerformLayout();
@@ -763,7 +758,6 @@
         private System.Windows.Forms.CheckBox checkBoxIssemicolon_PNE;
         private System.Windows.Forms.Panel panelFileActions_PNE;
         private System.Windows.Forms.Button buttonAddColumn_PNE;
-        private System.Windows.Forms.Button buttonRefresh_PNE;
         private System.Windows.Forms.DataGridView DataGridViewDataBase_PNE;
         private System.Windows.Forms.Panel panelFlowDown_PNE;
         private System.Windows.Forms.Panel panelStatisticActions_PNE;
@@ -780,6 +774,7 @@
         private System.Windows.Forms.Button buttonRemoveSelection_PNE;
         private System.Windows.Forms.Button buttonRemoveRow_PNE;
         private System.Windows.Forms.ToolTip toolTip_PNE;
+        private System.Windows.Forms.Label labelUserName_PNE;
     }
 }
 
