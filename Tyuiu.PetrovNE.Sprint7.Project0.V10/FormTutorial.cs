@@ -40,7 +40,6 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             textBoxNameUser_PNE.Visible = false;
             buttonApplyName_PNE.Width = 0;
 
-
             panelFill_PNE.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffb923"); // change color 
 
             //Remove Background Selection in NextStep Button
