@@ -20,7 +20,7 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             }*/
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            Application.Run(new FormTutorial());
         }
         /*[System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDpiAware();*/

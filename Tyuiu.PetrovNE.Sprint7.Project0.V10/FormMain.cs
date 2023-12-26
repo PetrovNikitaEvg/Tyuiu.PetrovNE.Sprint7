@@ -18,14 +18,21 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
 {
     public partial class FormMain : Form
     {
+        public static FormMain instance;
         public FormMain()
         {
             InitializeComponent();
+            instance = this;
         }
+
         public string openFilePath;
-        bool isShow = false, isinprogress = false, issemicolon = false;
+        bool isShow = false, isinprogress = false, issemicolon = false, is_row_was_added;
         public int column, rows;
         public int[] Order_costs_array;
+        public String[] Bank_Account_array;
+
+        public string UserName = FormTutorial.instance.UserName;
+
         private void HideAll()
         {
             panelFileActions_PNE.Width = 0;
@@ -35,48 +42,93 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
 
         private void RemoveBackgroundSelection()
         {
-            //Remove Background Selection in Setting Button
-            buttonSetting_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonSetting_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            //MENU ACTIONS
+            {
+                //Remove Background Selection in Setting Button
+                buttonSetting_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonSetting_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
-            //Remove Background Selection in Tutorial Button
-            buttonTutorial_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonTutorial_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                //Remove Background Selection in Tutorial Button
+                buttonTutorial_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonTutorial_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
-            //Remove Background Selection in About Button
-            buttonAbout_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonAbout_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                //Remove Background Selection in About Button
+                buttonAbout_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonAbout_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            }
 
             //DropListButtons
-            //Remove Background Selection in FileDropList button
-            buttonFileDropList_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonFileDropList_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            {
+                //Remove Background Selection in FileDropList button
+                buttonFileDropList_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonFileDropList_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
-            //Remove Background Selection in DataBaseDropList button
-            buttonDataBaseDropList_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonDataBaseDropList_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                //Remove Background Selection in DataBaseDropList button
+                buttonDataBaseDropList_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonDataBaseDropList_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
-            //Remove Background Selection in StatisticDropList button
-            buttonStatisticDropList_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonStatisticDropList_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                //Remove Background Selection in StatisticDropList button
+                buttonStatisticDropList_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonStatisticDropList_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
-            //Remove Background Selection in OpenFunctionWindow button
-            buttonOpenFunctionWindow_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonOpenFunctionWindow_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                //Remove Background Selection in OpenFunctionWindow button
+                buttonOpenFunctionWindow_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonOpenFunctionWindow_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
-            //MAIN ACTIONS
-            //Remove Background Selection in FileLoad button
-            buttonLoadFile_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonLoadFile_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                //Remove Background Selection in Refresh button
+                buttonRefresh_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonRefresh_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            }
 
-            //Remove Background Selection in SaveFile button
-            buttonSaveFile_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonSaveFile_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            //FILE ACTIONS
+            {//Remove Background Selection in FileLoad button
+                buttonLoadFile_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonLoadFile_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
+                //Remove Background Selection in SaveFile button
+                buttonSaveFile_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonSaveFile_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+
+                //Remove Background Selection in SaveFile button
+                buttonAddColumn_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonAddColumn_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+
+                //Remove Background Selection in SaveFile button
+                buttonRemoveRow_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonRemoveRow_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+
+                //Remove Background Selection in SaveFile button
+                buttonClear_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonClear_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            }
+
+            //DataBase Actions
+            {
+                //Remove Background Selection in Filter Button
+                buttonFilter_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonFilter_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+
+                //Remove Background Selection in RemoveSelection Button
+                buttonRemoveSelection_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonRemoveSelection_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+
+                //Remove Background Selection in Sort Button
+                buttonSort_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonSort_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            }
+
+            //Statistics actions
+            {
+                //Remove Background Selection in CompleteActionStatistics Button
+                buttonCompleteActionStatistics_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                buttonCompleteActionStatistics_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            }
 
         }
         private void FormMain_Load(object sender, EventArgs e) // Load funtcion for form
         {
+            MessageBox.Show($"Здравствуйте, {UserName}.\nЕсли возникнет желание почитать руководство ещё раз, это можно сделать через главное меню", "Приветствие", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
             HideAll(); // hide all buttons with actions
             RemoveBackgroundSelection(); //removing all background selection
 
@@ -85,6 +137,11 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             panelSlideLeft_PNE.Width = 0; //make width slide panel equal zero 
 
             panelSlideLeft_PNE.Hide(); // Panel is hide from load program
+
+            buttonOpenFunctionWindow_PNE.Enabled = false;
+            buttonRefresh_PNE.Enabled = false;
+            buttonStatisticDropList_PNE.Enabled = false;
+            buttonDataBaseDropList_PNE.Enabled = false;
 
         }
 
@@ -134,7 +191,8 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
 
         private void buttonTutorial_PNE_Click(object sender, EventArgs e) //Tutorial action
         {
-
+            FormTutorial formtutorial = new FormTutorial();
+            formtutorial.ShowDialog();
         }
 
         private void buttonAbout_PNE_Click(object sender, EventArgs e)//About action
@@ -274,7 +332,13 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             }
             column = DataGridViewDataBase_PNE.Columns.Count;
             rows = DataGridViewDataBase_PNE.RowCount - 1;
-    }
+
+            buttonOpenFunctionWindow_PNE.Enabled = true;
+            buttonRefresh_PNE.Enabled = true;
+            buttonStatisticDropList_PNE.Enabled = true;
+            buttonDataBaseDropList_PNE.Enabled = true;
+
+        }
 
 
         //SEARCH FUNCTION
@@ -411,30 +475,38 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             }
         }
 
+        //Statistic action
         private void buttonCompleteActionStatistics_PNE_Click(object sender, EventArgs e)
         {
-            Order_costs_array = new int[rows]; //create array for order cost
-
-            int count = 0;
-
-            for (int i = 0; i < rows+1; i++) //add values in array
+            try
             {
-                bool diddigitwasmeet = false;
-                string ResultString = "";
-                string CollectedStringValue = (DataGridViewDataBase_PNE.Rows[i].Cells[8].Value.ToString());
-                for (int k = 0; k < CollectedStringValue.Length; k++)
+                Order_costs_array = new int[rows]; //create array for order cost
+
+                int count = 0;
+
+                for (int i = 0; i < rows + 1; i++) //add values in array
                 {
-                    if (Char.IsDigit(CollectedStringValue[k]))
+                    bool did_digit_was_meet = false;
+                    string ResultString = "";
+                    string CollectedStringValue = (DataGridViewDataBase_PNE.Rows[i].Cells[8].Value.ToString());
+                    for (int k = 0; k < CollectedStringValue.Length; k++)
                     {
-                        ResultString += CollectedStringValue[k];
-                        diddigitwasmeet = true;
+                        if (Char.IsDigit(CollectedStringValue[k]))
+                        {
+                            ResultString += CollectedStringValue[k];
+                            did_digit_was_meet = true;
+                        }
+                    }
+                    if (did_digit_was_meet)
+                    {
+                        Order_costs_array[count] = int.Parse(ResultString);
+                        count++;
                     }
                 }
-                if (diddigitwasmeet)
-                {
-                    Order_costs_array[count] = int.Parse(ResultString);
-                    count++;
-                }
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так, проверьте данные в базе данных\nВсе ячейки в столбце должны быть заполненными", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             DataService ds = new DataService();
             try
@@ -466,15 +538,149 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             }
         }
 
-        private void buttonAddColumn_PNE_Click(object sender, EventArgs e)
+        private void DataGridViewDataBase_PNE_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
-                try
+            int so = 1;
+            if (DataGridViewDataBase_PNE.SortOrder == SortOrder.Ascending)
             {
-                DataGridViewDataBase_PNE.Rows.Add();
+                so = -1;
+            }
+            if (e.RowIndex1 == 0)
+            {
+                e.SortResult = so;
+                e.Handled = true;
+            }
+            if (e.RowIndex2 == 0)
+            {
+                e.SortResult = -so;
+                e.Handled = true;
+            }
+
+        }
+
+        private void buttonRemoveRow_PNE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewDataBase_PNE.Rows.RemoveAt(DataGridViewDataBase_PNE.SelectedCells[0].RowIndex);
+                rows--;
             }
             catch
             {
-                MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("База данных не должна быть пустой", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonSort_PNE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormSortingTutorial formSortingTutorial = new FormSortingTutorial();
+                formSortingTutorial.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так, попробуйте перезапустить приложение", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonOpenFunctionWindow_PNE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Order_costs_array = new int[rows]; //create array for order cost
+
+                int count = 0;
+
+                for (int i = 0; i < rows + 1; i++) //add values in array
+                {
+                    bool did_digit_was_meet = false;
+                    string ResultString = "";
+                    string CollectedStringValue = (DataGridViewDataBase_PNE.Rows[i].Cells[8].Value.ToString());
+                    for (int k = 0; k < CollectedStringValue.Length; k++)
+                    {
+                        if (Char.IsDigit(CollectedStringValue[k]))
+                        {
+                            ResultString += CollectedStringValue[k];
+                            did_digit_was_meet = true;
+                        }
+                    }
+                    if (did_digit_was_meet)
+                    {
+                        Order_costs_array[count] = int.Parse(ResultString);
+                        count++;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так, проверьте данные базы данных", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                Bank_Account_array = new string[rows]; //create array for order cost
+
+                int count = 0;
+
+                for (int i = 1; i < rows + 1; i++) //add values in array
+                {
+                    string CollectedStringValue = (DataGridViewDataBase_PNE.Rows[i].Cells[3].Value.ToString());
+                    Bank_Account_array[count] = CollectedStringValue;
+                    count++;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так, проверьте данные в базе данных\nВсе ячейки в столбце должны быть заполненными", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            FormChart formchart = new FormChart();
+            formchart.ShowDialog();
+        }
+
+        private void buttonAddColumn_PNE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool isrownull = true;
+                int[] RowArray = new int[column];
+                int index = 0;
+                for (int i = 0; i < column; i++)
+                {
+                        if (DataGridViewDataBase_PNE.Rows[rows].Cells[i].Value.ToString() == null)
+                        {
+                        break;
+                        }
+                        else
+                    {
+                        RowArray[index] = 1;
+                        index++;
+                    }
+                }
+                if (RowArray.Sum() == column)
+                {
+                    isrownull = false;
+                }
+
+                if (!is_row_was_added)
+                {
+                    rows++;
+                    DataGridViewDataBase_PNE.Rows.Add();
+                    is_row_was_added = true;
+                }
+                else
+                {
+                    if (!isrownull)
+                    {
+                        DataGridViewDataBase_PNE.Rows.Add();
+                        rows++;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно добавить данные\n1. Небходимо сначала загрузить базу данных\n2. Последняя строка в базе данных должны быть полностью заполнена", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);   
             }
         }
 
