@@ -28,8 +28,8 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
 
             labelUserName_PNE.Text = $"Текущий пользователь: {UserName}";
 
-            string Music_Path0 = @"C:\Users\niki8\source\repos\Tyuiu.PetrovNE.Sprint7\Song1.wav";
-            string Music_Path1 = @"C:\Users\niki8\source\repos\Tyuiu.PetrovNE.Sprint7\Song0.wav";
+            string Music_Path0 = $@"{Directory.GetCurrentDirectory()}\Song1.wav";
+            string Music_Path1 = $@"{Directory.GetCurrentDirectory()}\Song0.wav";
 
             instance = this;
 

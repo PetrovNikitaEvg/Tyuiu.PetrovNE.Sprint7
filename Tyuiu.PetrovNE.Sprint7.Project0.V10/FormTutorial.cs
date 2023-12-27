@@ -60,6 +60,9 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             buttonApplyName_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
             buttonApplyName_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
+            buttonLoadFile_PNE.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonLoadFile_PNE.FlatAppearance.MouseOverBackColor = Color.Transparent;
+
         }
 
         private void buttonNextStep_PNE_Click(object sender, EventArgs e)

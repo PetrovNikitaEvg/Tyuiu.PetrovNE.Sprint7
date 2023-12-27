@@ -40,11 +40,11 @@ namespace Tyuiu.PetrovNE.Sprint7.Project0.V10
             {
                 if (comboBoxMusicChoose_PNE.Text == "Bad Piggies")
                 {
-                    FormMain.sp0.Play();
+                    FormMain.sp0.PlayLooping();
                 }
                 else
                 {
-                    FormMain.sp1.Play();
+                    FormMain.sp1.PlayLooping();
                 }
             }
         }
